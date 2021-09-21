@@ -1,6 +1,6 @@
 <template>
-  <q-page class="column">
-    <q-card flat bordered class="main-card">
+  <div class="column">
+    <q-card flat bordered>
       <q-card-section>
         <div class="q-pa-sm">
           <q-badge class="q-mb-sm" outline color="primary" label="Текст регулярного выражения:" />
@@ -55,12 +55,12 @@
       </div>
       </q-card-section>
     </q-card>
-  </q-page>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "PageIndex",
+  name: "RegexpConstructor",
   data() {
     return {
       regexpText: ".+",
@@ -115,22 +115,13 @@ export default {
         afterSearchingTextIs = "(?=" + this.afterSearchingTextIs + ")";
       }
 
-      beforeSearchingTextIs = beforeSearchingTextIs.replaceAll(" ", "\\ ");
-      startSearchingTextIs = startSearchingTextIs.replaceAll(" ", "\\ ");
-      endSearchingTextIs = endSearchingTextIs.replaceAll(" ", "\\ ");
-      afterSearchingTextIs = afterSearchingTextIs.replaceAll(" ", "\\ ");
+      beforeSearchingTextIs = beforeSearchingTextIs.replace(/ /g, "\\ ");
+      startSearchingTextIs = startSearchingTextIs.replace(/ /g, "\\ ");
+      endSearchingTextIs = endSearchingTextIs.replace(/ /g, "\\ ");
+      afterSearchingTextIs = afterSearchingTextIs.replace(/ /g, "\\ ");
 
       this.regexpText = beforeSearchingTextIs + startSearchingTextIs + middlePartRegExp + endSearchingTextIs + afterSearchingTextIs;
     }
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.main-card {
-  width: 100%;
-  max-width: 800px;
-  min-width: 300px;
-  margin: 20px auto;
-}
-</style>
