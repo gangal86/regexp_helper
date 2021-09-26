@@ -1,20 +1,33 @@
 <template>
-  <div class="q-pa-md">
-    <q-list v-if="showCategoriesNames" bordered separator>
-
-      <q-item v-for="(category, key) in categories" :key="key" @click="chooseCategory(key)" clickable v-ripple>
+  <div class="q-pa-xs">
+    <q-list
+      v-if="showCategoriesNames"
+      bordered
+      separator
+    >
+      <q-item
+        v-for="(category, key) in categories"
+        :key="key"
+        @click="chooseCategory(key)"
+        clickable
+        v-ripple
+      >
         <q-item-section>
           <q-item-label class="text-center text-primary">{{ category }}</q-item-label>
         </q-item-section>
       </q-item>
-
     </q-list>
-
-    <q-list v-if="!showCategoriesNames" bordered separator>
-      <q-btn @click="backToCategories" color="primary" icon="arrow_back" label="назад" />
-       <Anchors v-if="showAnchors" />
-       <CharacterClasses v-if="showCharacterClasses" />
-    </q-list>
+      <Anchors v-if="showAnchors" />
+      <CharacterClasses v-if="showCharacterClasses" />
+      <div class="row">
+        <q-btn
+          v-if="!showCategoriesNames"
+          @click="backToCategories"
+          class="col-1 q-ml-xs q-mt-md"
+          color="primary"
+          icon="arrow_back"
+        />
+      </div>
   </div>
 </template>
 

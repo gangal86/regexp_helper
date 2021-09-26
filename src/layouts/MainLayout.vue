@@ -5,8 +5,19 @@
         <q-toolbar-title>
           RegExp Helper
         </q-toolbar-title>
-        <q-btn flat round dense icon="apps" class="q-mr-xs" />
-        <q-btn flat round dense icon="more_vert" />
+        <q-btn
+          flat
+          round
+          dense
+          icon="apps"
+          class="q-mr-xs"
+        />
+        <q-btn
+          flat
+          round
+          dense
+          icon="more_vert"
+        />
       </q-toolbar>
     </q-header>
 

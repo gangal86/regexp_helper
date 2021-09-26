@@ -1,12 +1,27 @@
 <template>
-  <div class="column">
+  <div class="column q-pa-xs">
     <q-card flat bordered>
       <q-card-section>
         <div class="q-pa-sm">
-          <q-badge class="q-mb-sm" outline color="primary" label="Текст регулярного выражения:" />
+          <q-badge
+            class="q-mb-sm"
+            outline
+            color="primary"
+            label="Текст регулярного выражения:"
+          />
           <div class="row q-gutter-sm">
-            <q-input class="col-sm-10 col-xs-12" outlined v-model="regexpText" dense />
-            <q-btn class="col-sm col-xs-12" color="primary" label="Тест" @click="testRegExp" />
+            <q-input
+              class="col-sm-10 col-xs-12"
+              outlined
+              v-model="regexpText"
+              dense
+            />
+            <q-btn
+              class="col-sm col-xs-12"
+              color="primary"
+              label="Тест"
+              @click="testRegExp"
+            />
           </div>
       </div>
 
@@ -23,8 +38,22 @@
         <div class="col-sm q-pa-sm">
           <div class="column q-gutter-sm text-caption text-primary">
             <q-badge outline color="primary">В центре искомого текста:</q-badge>
-            <q-checkbox v-model="checkAllowHyphenation" label="Разрешить переносы" keep-color color="primary" dense size="sm" />
-            <q-checkbox v-model="checkShortestMatch" label="Самое короткое совпадение" keep-color color="primary" dense size="sm" />
+            <q-checkbox
+              v-model="checkAllowHyphenation"
+              label="Разрешить переносы"
+              keep-color
+              color="primary"
+              dense
+              size="sm"
+            />
+            <q-checkbox
+              v-model="checkShortestMatch"
+              label="Самое короткое совпадение"
+              keep-color
+              color="primary"
+              dense
+              size="sm"
+            />
           </div>
         </div>
 
@@ -42,14 +71,22 @@
         <div class="col-sm q-pa-sm">
           <div class="q-gutter-sm">
             <q-badge outline color="primary">Текст для обработки:</q-badge>
-            <q-input v-model="sourceText" filled type="textarea" />
+            <q-input
+              v-model="sourceText"
+              filled
+              type="textarea"
+            />
           </div>
         </div>
 
         <div class="col-sm q-pa-sm">
           <div class="q-gutter-sm">
             <q-badge outline color="primary">Результат обработки:</q-badge>
-            <q-input v-model="matchResult" filled type="textarea" />
+            <q-input
+              v-model="matchResult"
+              filled
+              type="textarea"
+            />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-xs">
      <q-table
       title="Якоря"
       :data="data"
@@ -12,7 +12,10 @@
       hide-bottom
     >
       <template v-slot:body="props">
-        <q-tr :class="{'bg-teal-1': props.pageIndex % 2 == 0}" :props="props">
+        <q-tr
+          :class="{'bg-teal-1': props.pageIndex % 2 == 0}"
+          :props="props"
+        >
           <q-td key="description" :props="props">
             <q-badge class="text-subtitle1" color="primary">
               {{ props.row.description }}
@@ -79,7 +82,6 @@
         }
       ]
     }
-  }
-    
+  } 
   }
 </script>
