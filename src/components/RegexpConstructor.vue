@@ -26,8 +26,8 @@
       </div>
 
       <div class="row">
-        <div class="col-sm q-pa-sm">
-          <div class="column q-gutter-sm">
+        <div class="col-sm col-xs-12 q-pa-sm fix-standart-grid">
+          <div class="q-gutter-sm">
             <q-badge outline  color="primary">Перед искомым текстом всегда есть:</q-badge>
             <q-input class="q-mb-sm" outlined v-model="beforeSearchingTextIs" dense />
             <q-badge outline color="primary">Искомый текст всегда начинается с:</q-badge>
@@ -35,10 +35,11 @@
           </div>
         </div>
 
-        <div class="col-sm q-pa-sm">
-          <div class="column q-gutter-sm text-caption text-primary">
+        <div class="col-sm col-xs-12 q-pa-sm  fix-standart-grid">
+          <div class="q-gutter-sm text-caption text-primary">
             <q-badge outline color="primary">В центре искомого текста:</q-badge>
-            <q-checkbox
+            <div class="column">
+              <q-checkbox
               v-model="checkAllowHyphenation"
               label="Разрешить переносы"
               keep-color
@@ -54,11 +55,12 @@
               dense
               size="sm"
             />
+            </div>
           </div>
         </div>
 
-        <div class="col-sm q-pa-sm">
-          <div class="column q-gutter-sm">
+        <div class="col-sm col-xs-12 q-pa-sm fix-standart-grid">
+          <div class="q-gutter-sm">
             <q-badge outline color="primary">Это идет после искомого текста:</q-badge>
             <q-input class="q-mb-sm" outlined v-model="afterSearchingTextIs" dense />
             <q-badge outline color="primary">Этим заканчивается искомый текст:</q-badge>
@@ -68,7 +70,7 @@
       </div>
 
       <div class="row">
-        <div class="col-sm q-pa-sm">
+        <div class="col-sm col-xs-12 q-pa-sm">
           <div class="q-gutter-sm">
             <q-badge outline color="primary">Текст для обработки:</q-badge>
             <q-input
@@ -79,7 +81,7 @@
           </div>
         </div>
 
-        <div class="col-sm q-pa-sm">
+        <div class="col-sm col-xs-12 q-pa-sm">
           <div class="q-gutter-sm">
             <q-badge outline color="primary">Результат обработки:</q-badge>
             <q-input
@@ -162,3 +164,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+  @media (max-width: 800px){
+    .fix-standart-grid {
+      min-width: 100%;
+    }
+  }
+</style>

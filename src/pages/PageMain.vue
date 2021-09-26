@@ -1,5 +1,5 @@
 <template>
-  <q-page class="column">
+  <q-page class="q-pt-md">
    <q-card>
         <q-tabs
           v-model="tab"
@@ -46,4 +46,3 @@ export default {
   }
 };
 </script>
-

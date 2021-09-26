@@ -1,82 +1,225 @@
 <template>
-  <div class="q-pa-xs">
-    <q-list
-      v-if="showCategoriesNames"
-      bordered
-      separator
-    >
-      <q-item
-        v-for="(category, key) in categories"
+  <q-scroll-area class="scroll-area">
+    <q-list separator bordered>
+      <q-expansion-item
+        v-for="(dataItem, key) in data"
         :key="key"
-        @click="chooseCategory(key)"
-        clickable
-        v-ripple
+        group="somegroup"
+        :icon="dataItem['header']['icon']"
+        :label="dataItem['header']['title']"
+        header-class="text-primary text-subtitle1"
       >
-        <q-item-section>
-          <q-item-label class="text-center text-primary">{{ category }}</q-item-label>
-        </q-item-section>
-      </q-item>
+        <q-card>
+          <q-card-section>
+            <div class="q-pa-xs">
+              <q-table
+                :data="dataItem['body']"
+                :columns="columns"
+                :pagination="{ rowsNumber: 10 }"
+                bordered
+                flat
+                row-key="name"
+                hide-header
+                hide-bottom
+              >
+                <template v-slot:body="props">
+                  <q-tr
+                    :class="{ 'bg-teal-1': props.pageIndex % 2 == 0 }"
+                    :props="props"
+                  >
+                    <q-td key="pattern" :props="props">
+                      <q-badge class="text-subtitle1" color="primary">
+                        {{ props.row.pattern }}
+                      </q-badge>
+                    </q-td>
+                    <q-td key="description" :props="props">
+                      <div class="text-subtitle1">
+                        {{ props.row.description }}
+                      </div>
+                    </q-td>
+                  </q-tr>
+                </template>
+              </q-table>
+            </div>
+          </q-card-section>
+        </q-card>
+      </q-expansion-item>
     </q-list>
-      <Anchors v-if="showAnchors" />
-      <CharacterClasses v-if="showCharacterClasses" />
-      <div class="row">
-        <q-btn
-          v-if="!showCategoriesNames"
-          @click="backToCategories"
-          class="col-1 q-ml-xs q-mt-md"
-          color="primary"
-          icon="arrow_back"
-        />
-      </div>
-  </div>
+  </q-scroll-area>
 </template>
 
 <script>
-import Anchors from "components/cheat-sheet-categories/Anchors"
-import CharacterClasses from "components/cheat-sheet-categories/CharacterClasses"
-
-  export default {
-    name: "CheetSheet",
-    components: {
-      Anchors,
-      CharacterClasses
-    },
-    data() {
-      return {
-        showCategoriesNames: true,
-        showAnchors: false,
-        showCharacterClasses: false,
-        categories: {
-          0: "ЯКОРЯ",
-          1: "СИМВОЛЬНЫЕ КЛАССЫ",
-          2: "СИМВОЛЬНЫЕ КЛАССЫ POSIX",
-          3: "УТВЕРЖДЕНИЯ",
-          4: "КВАНТОРЫ",
-          5: "СПЕЦИАЛЬНЫЕ СИМВОЛЫ",
-          6: "ПОДСТАНОВКА СТРОК",
-          7: "ДИАПАЗОНЫ",
-          8: "МОДИФИКАТОРЫ ШАБЛОНОВ",
-          9: "МЕТА-СИМВОЛЫ (ЭКРАНИРУЮТСЯ)"
+export default {
+  name: "PageMain",
+  data() {
+    return {
+      columns: [
+        {
+          name: "pattern",
+          align: "left"
+        },
+        {
+          name: "description",
+          align: "center"
+        }
+      ],
+      data: {
+        anchors: {
+          header: {
+            title: "Якоря",
+            icon: "anchor"
+          },
+          body: [
+            {
+              pattern: "^",
+              description: "Начало строки"
+            },
+            {
+              pattern: "\\A",
+              description: "Начало текста"
+            },
+            {
+              pattern: "$",
+              description: "Конец строки"
+            },
+            {
+              pattern: "\\Z",
+              description: "Конец текста"
+            },
+            {
+              pattern: "\\b",
+              description: "Граница слова"
+            },
+            {
+              pattern: "\\B",
+              description: "НЕ граница слова"
+            },
+            {
+              pattern: "\\<",
+              description: "Начало слова"
+            },
+            {
+              pattern: "\\>",
+              description: "Конец слова"
+            }
+          ]
+        },
+        characterClasses: {
+          header: {
+            title: "Символьные классы",
+            icon: "text_format"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        posix: {
+          header: {
+            title: "POSIX",
+            icon: "closed_caption"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        assertions: {
+          header: {
+            title: "Утверждения",
+            icon: "change_history"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        quantifiers: {
+          header: {
+            title: "Кванторы",
+            icon: "graphic_eq"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        specialCharacters: {
+          header: {
+            title: "Специальные символы",
+            icon: "push_pin"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        stringReplacement: {
+          header: {
+            title: "Подстановка строк",
+            icon: "low_priority"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        ranges: {
+          header: {
+            title: "Диапазоны",
+            icon: "format_line_spacing"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        patternModifiers: {
+          header: {
+            title: "Модификаторы шаблонов",
+            icon: "auto_fix_high"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
+        },
+        metacharacters: {
+          header: {
+            title: "Мета-символы (экранируются)",
+            icon: "settings_ethernet"
+          },
+          body: [
+            {
+              pattern: "pattern",
+              description: "description"
+            }
+          ]
         }
       }
-    },
-    methods: {
-      chooseCategory(key){
-        this.showCategoriesNames = false;
-        switch (+key) {
-          case 0:
-            this.showAnchors = true;
-            break;
-          case 1:
-            this.showCharacterClasses = true;
-            break;
-        }
-      },
-      backToCategories(){
-        this.showCategoriesNames = true;
-        this.showAnchors = false;
-        this.showCharacterClasses = false;
-      }
-    }    
+    };
   }
+};
 </script>
+
+<style lang="scss" scoped>
+.scroll-area {
+  height: 500px;
+}
+</style>
