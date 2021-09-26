@@ -219,7 +219,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.scroll-area {
-  height: 500px;
+@media (max-width: 800px) {
+  .scroll-area {
+    height: 500px;
+  }
 }
+.scroll-area {
+    height: 800px;
+  }
 </style>

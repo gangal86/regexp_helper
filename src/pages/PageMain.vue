@@ -1,6 +1,6 @@
 <template>
   <q-page class="q-pt-md">
-   <q-card>
+   <q-card flat bordered>
         <q-tabs
           v-model="tab"
           dense

@@ -2,7 +2,7 @@
   <div class="column q-pa-xs">
     <q-card flat bordered>
       <q-card-section>
-        <div class="q-pa-sm">
+        <div class="q-pa-xs">
           <q-badge
             class="q-mb-sm"
             outline
@@ -23,75 +23,109 @@
               @click="testRegExp"
             />
           </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm col-xs-12 q-pa-sm fix-standart-grid">
-          <div class="q-gutter-sm">
-            <q-badge outline  color="primary">Перед искомым текстом всегда есть:</q-badge>
-            <q-input class="q-mb-sm" outlined v-model="beforeSearchingTextIs" dense />
-            <q-badge outline color="primary">Искомый текст всегда начинается с:</q-badge>
-            <q-input class="q-mb-sm" outlined v-model="startSearchingTextIs" dense />
-          </div>
         </div>
 
-        <div class="col-sm col-xs-12 q-pa-sm  fix-standart-grid">
-          <div class="q-gutter-sm text-caption text-primary">
-            <q-badge outline color="primary">В центре искомого текста:</q-badge>
-            <div class="column">
-              <q-checkbox
-              v-model="checkAllowHyphenation"
-              label="Разрешить переносы"
-              keep-color
-              color="primary"
-              dense
-              size="sm"
-            />
-            <q-checkbox
-              v-model="checkShortestMatch"
-              label="Самое короткое совпадение"
-              keep-color
-              color="primary"
-              dense
-              size="sm"
-            />
+        <q-scroll-area class="scroll-area">
+          <div class="row">
+            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+              <div class="q-gutter-sm">
+                <q-badge outline color="primary"
+                  >Перед искомым текстом всегда есть:</q-badge
+                >
+                <q-input
+                  class="q-mb-sm"
+                  outlined
+                  v-model="beforeSearchingTextIs"
+                  dense
+                />
+                <q-badge outline color="primary"
+                  >Искомый текст всегда начинается с:</q-badge
+                >
+                <q-input
+                  class="q-mb-sm"
+                  outlined
+                  v-model="startSearchingTextIs"
+                  dense
+                />
+              </div>
+            </div>
+
+            <div class="col-sm col-xs-12 q-pa-xs  fix-standart-grid">
+              <div class="q-gutter-sm text-caption text-primary">
+                <q-badge class="q-ml-md" outline color="primary"
+                  >В центре искомого текста:</q-badge
+                >
+                <div class="column">
+                  <q-checkbox
+                    v-model="checkAllowHyphenation"
+                    label="Разрешить переносы"
+                    keep-color
+                    color="primary"
+                    size="md"
+                  />
+                  <q-checkbox
+                    v-model="checkShortestMatch"
+                    label="Самое короткое совпадение"
+                    keep-color
+                    color="primary"
+                    size="md"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+              <div class="q-gutter-sm">
+                <q-badge outline color="primary"
+                  >Это идет после искомого текста:</q-badge
+                >
+                <q-input
+                  class="q-mb-sm"
+                  outlined
+                  v-model="afterSearchingTextIs"
+                  dense
+                />
+                <q-badge outline color="primary"
+                  >Этим заканчивается искомый текст:</q-badge
+                >
+                <q-input
+                  class="q-mb-sm"
+                  outlined
+                  v-model="endSearchingTextIs"
+                  dense
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-sm col-xs-12 q-pa-sm fix-standart-grid">
-          <div class="q-gutter-sm">
-            <q-badge outline color="primary">Это идет после искомого текста:</q-badge>
-            <q-input class="q-mb-sm" outlined v-model="afterSearchingTextIs" dense />
-            <q-badge outline color="primary">Этим заканчивается искомый текст:</q-badge>
-            <q-input class="q-mb-sm" outlined v-model="endSearchingTextIs" dense />
-          </div>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-sm col-xs-12 q-pa-xs">
+              <div class="q-gutter-sm">
+                <q-badge outline color="primary">Текст для обработки:</q-badge>
+                <q-input
+                  v-model="sourceText"
+                  filled
+                  clearable
+                  rows="14"
+                  type="textarea"
+                />
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="col-sm col-xs-12 q-pa-sm">
-          <div class="q-gutter-sm">
-            <q-badge outline color="primary">Текст для обработки:</q-badge>
-            <q-input
-              v-model="sourceText"
-              filled
-              type="textarea"
-            />
+            <div class="col-sm col-xs-12 q-pa-xs">
+              <div class="q-gutter-sm">
+                <q-badge outline color="primary">Результат обработки:</q-badge>
+                <q-input
+                  v-model="matchResult"
+                  filled
+                  clearable
+                  rows="14"
+                  type="textarea"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="col-sm col-xs-12 q-pa-sm">
-          <div class="q-gutter-sm">
-            <q-badge outline color="primary">Результат обработки:</q-badge>
-            <q-input
-              v-model="matchResult"
-              filled
-              type="textarea"
-            />
-          </div>
-        </div>
-      </div>
+        </q-scroll-area>
       </q-card-section>
     </q-card>
   </div>
@@ -114,12 +148,24 @@ export default {
     };
   },
   watch: {
-    beforeSearchingTextIs() {this.fillRegExp()},
-    afterSearchingTextIs() {this.fillRegExp()},
-    startSearchingTextIs() {this.fillRegExp()},
-    endSearchingTextIs() {this.fillRegExp()},
-    checkAllowHyphenation() {this.fillRegExp()},
-    checkShortestMatch() {this.fillRegExp()}
+    beforeSearchingTextIs() {
+      this.fillRegExp();
+    },
+    afterSearchingTextIs() {
+      this.fillRegExp();
+    },
+    startSearchingTextIs() {
+      this.fillRegExp();
+    },
+    endSearchingTextIs() {
+      this.fillRegExp();
+    },
+    checkAllowHyphenation() {
+      this.fillRegExp();
+    },
+    checkShortestMatch() {
+      this.fillRegExp();
+    }
   },
   methods: {
     testRegExp() {
@@ -159,16 +205,24 @@ export default {
       endSearchingTextIs = endSearchingTextIs.replace(/ /g, "\\ ");
       afterSearchingTextIs = afterSearchingTextIs.replace(/ /g, "\\ ");
 
-      this.regexpText = beforeSearchingTextIs + startSearchingTextIs + middlePartRegExp + endSearchingTextIs + afterSearchingTextIs;
+      this.regexpText =
+        beforeSearchingTextIs +
+        startSearchingTextIs +
+        middlePartRegExp +
+        endSearchingTextIs +
+        afterSearchingTextIs;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-  @media (max-width: 800px){
-    .fix-standart-grid {
-      min-width: 100%;
-    }
+.scroll-area {
+  height: 500px;
+}
+@media (max-width: 800px) {
+  .fix-standart-grid {
+    min-width: 100%;
   }
+}
 </style>
