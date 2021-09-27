@@ -10,7 +10,7 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="regexpConstructor" label="Конструктор" />
+          <q-tab name="regexpConstructor" :label="$t('constructorTabTitle')" />
           <q-tab name="cheatSheet" label="Шпаргалка" />
         </q-tabs>
 

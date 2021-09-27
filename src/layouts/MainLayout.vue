@@ -18,6 +18,17 @@
           dense
           icon="more_vert"
         />
+        <q-select
+          v-model="lang"
+          :options="langOptions"
+          label="Quasar Language"
+          dense
+          borderless
+          emit-value
+          map-options
+          options-dense
+          style="min-width: 150px"
+      />
       </q-toolbar>
     </q-header>
 
@@ -31,6 +42,20 @@
 
 export default {
   name: 'MainLayout',
+  data() {
+    return {
+      lang: this.$i18n.locale,
+      langOptions: [
+        { value: 'en-us', label: 'English' },
+        { value: 'ru', label: 'Русский' }
+      ]
+    }
+  },
+  watch: {
+    lang(lang) {
+        this.$i18n.locale = lang;
+    }
+  }
 }
 </script>
 

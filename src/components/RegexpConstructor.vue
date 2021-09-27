@@ -19,7 +19,7 @@
             <q-btn
               class="col-sm col-xs-12"
               color="primary"
-              label="Тест"
+              :label="$t('btnTestRegExp')"
               @click="testRegExp"
             />
           </div>

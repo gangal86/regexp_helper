@@ -1,7 +1,8 @@
-// This is just an example,
-// so you can safely delete all default props below
-
+//Eng
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful'
+  anchors: 'Anchors',
+  anchors1: 'Start of string',
+  characterClasses: 'Character classes',
+  constructorTabTitle: 'Constructor',
+  btnTestRegExp: 'Test'
 }

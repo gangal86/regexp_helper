@@ -6,7 +6,7 @@
         :key="key"
         group="somegroup"
         :icon="dataItem['header']['icon']"
-        :label="dataItem['header']['title']"
+        :label="$t(dataItem['header']['title'])"
         header-class="text-primary text-subtitle1"
       >
         <q-card>
@@ -34,7 +34,7 @@
                     </q-td>
                     <q-td key="description" :props="props">
                       <div class="text-subtitle1">
-                        {{ props.row.description }}
+                        {{ $t(props.row.description) }}
                       </div>
                     </q-td>
                   </q-tr>
@@ -66,13 +66,13 @@ export default {
       data: {
         anchors: {
           header: {
-            title: "Якоря",
+            title: "anchors",
             icon: "anchor"
           },
           body: [
             {
               pattern: "^",
-              description: "Начало строки"
+              description: "anchors1"
             },
             {
               pattern: "\\A",
@@ -106,7 +106,7 @@ export default {
         },
         characterClasses: {
           header: {
-            title: "Символьные классы",
+            title: "characterClasses",
             icon: "text_format"
           },
           body: [
