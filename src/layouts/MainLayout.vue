@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { LocalStorage } from "quasar";
 
 export default {
   name: 'MainLayout',
@@ -54,6 +55,7 @@ export default {
   watch: {
     lang(lang) {
         this.$i18n.locale = lang;
+        LocalStorage.set("locale", lang);
     }
   }
 }
