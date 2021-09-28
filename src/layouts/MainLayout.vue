@@ -6,32 +6,26 @@
           RegExp Helper
         </q-toolbar-title>
         <q-btn
+          @click="selectLang('us')"
+          v-if="!countryFlagStatus"
           flat
-          round
+          size="xs"
           dense
-          icon="apps"
-          class="q-mr-xs"
-        />
+        >
+          <country-flag country="us" />
+        </q-btn>
         <q-btn
+          @click="selectLang('rus')"
+          v-if="countryFlagStatus"
           flat
-          round
+          size="xs"
           dense
-          icon="more_vert"
-        />
-        <q-select
-          v-model="lang"
-          :options="langOptions"
-          label="Quasar Language"
-          dense
-          borderless
-          emit-value
-          map-options
-          options-dense
-          style="min-width: 150px"
-      />
+        >
+          <country-flag country="rus" />
+        </q-btn>
+        <q-btn flat round dense icon="more_vert" />
       </q-toolbar>
     </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -42,28 +36,39 @@
 import { LocalStorage } from "quasar";
 
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
   data() {
     return {
       lang: this.$i18n.locale,
-      langOptions: [
-        { value: 'en-us', label: 'English' },
-        { value: 'ru', label: 'Русский' }
-      ]
-    }
+      countryFlagStatus: LocalStorage.getItem("countryFlagStatus") || false
+    };
   },
   watch: {
     lang(lang) {
-        this.$i18n.locale = lang;
-        LocalStorage.set("locale", lang);
+      this.$i18n.locale = lang;
+      LocalStorage.set("locale", lang);
+    }
+  },
+  methods: {
+    selectLang(lang) {
+      if (lang == "rus") {
+        this.lang = "ru";
+        this.countryFlagStatus = false;
+        LocalStorage.set("countryFlagStatus", false);
+      }
+      if (lang == "us") {
+        this.lang = "en-us";
+        this.countryFlagStatus = true;
+        LocalStorage.set("countryFlagStatus", true);
+      }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  .main-layout {
-    max-width: 1000px;
-    margin: 0px auto;
-  }
+.main-layout {
+  max-width: 1000px;
+  margin: 0px auto;
+}
 </style>

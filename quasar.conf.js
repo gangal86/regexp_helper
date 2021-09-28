@@ -23,6 +23,7 @@ module.exports = function (/* ctx */) {
       
       'i18n',
       'axios',
+      'vue-country-flag'
     ],
 
     // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

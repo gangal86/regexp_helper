@@ -6,11 +6,9 @@ import { LocalStorage } from "quasar";
 Vue.use(VueI18n);
 
 let localeSaved = "";
-LocalStorage.getItem("locale")
+LocalStorage.has("locale")
   ? (localeSaved = LocalStorage.getItem("locale"))
-  : (localeSaved = "en-us");
-
-console.log("localeSaved ", localeSaved)
+  : (localeSaved = "ru");
 
 const i18n = new VueI18n({
   locale: localeSaved,
