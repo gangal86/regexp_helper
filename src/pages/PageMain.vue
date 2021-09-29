@@ -11,7 +11,7 @@
           narrow-indicator
         >
           <q-tab name="regexpConstructor" :label="$t('constructorTabTitle')" />
-          <q-tab name="cheatSheet" label="Шпаргалка" />
+          <q-tab name="cheatSheet" :label="$t('cheatSheetTabTitle')" />
         </q-tabs>
 
         <q-separator />
@@ -32,7 +32,7 @@
 
 <script>
 import RegexpConstructor from "components/RegexpConstructor"
-import CheatSheet from "components/CheatSheet.vue"
+import CheatSheet from "components/CheatSheet"
 export default {
   name: "PageMain",
   components: {

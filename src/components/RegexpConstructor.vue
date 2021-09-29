@@ -7,7 +7,7 @@
             class="q-mb-sm"
             outline
             color="primary"
-            label="Текст регулярного выражения:"
+            :label="$t('labelRegexpText')"
           />
           <div class="row q-gutter-sm">
             <q-input
@@ -30,7 +30,7 @@
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary"
-                  >Перед искомым текстом всегда есть:</q-badge
+                  >{{ $t('labelBeforeSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -39,7 +39,7 @@
                   dense
                 />
                 <q-badge outline color="primary"
-                  >Искомый текст всегда начинается с:</q-badge
+                  >{{ $t('labelStartSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -53,19 +53,19 @@
             <div class="col-sm col-xs-12 q-pa-xs  fix-standart-grid">
               <div class="q-gutter-sm text-caption text-primary">
                 <q-badge class="q-ml-md" outline color="primary"
-                  >В центре искомого текста:</q-badge
+                  >{{ $t('labelInTextCenter') }}</q-badge
                 >
                 <div class="column">
                   <q-checkbox
                     v-model="checkAllowHyphenation"
-                    label="Разрешить переносы"
+                    :label="$t('labelAllowHyphenation')"
                     keep-color
                     color="primary"
                     size="md"
                   />
                   <q-checkbox
                     v-model="checkShortestMatch"
-                    label="Самое короткое совпадение"
+                    :label="$t('labelShortestMatch')"
                     keep-color
                     color="primary"
                     size="md"
@@ -77,7 +77,7 @@
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary"
-                  >Это идет после искомого текста:</q-badge
+                  >{{ $t('labelAfterSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -86,7 +86,7 @@
                   dense
                 />
                 <q-badge outline color="primary"
-                  >Этим заканчивается искомый текст:</q-badge
+                  >{{ $t('labelEndSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -101,7 +101,7 @@
           <div class="row">
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">Текст для обработки:</q-badge>
+                <q-badge outline color="primary">{{ $t('labelSourceText') }}</q-badge>
                 <q-input
                   v-model="sourceText"
                   filled
@@ -114,7 +114,7 @@
 
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">Результат обработки:</q-badge>
+                <q-badge outline color="primary">{{ $t('labelMatchResult') }}</q-badge>
                 <q-input
                   v-model="matchResult"
                   filled
