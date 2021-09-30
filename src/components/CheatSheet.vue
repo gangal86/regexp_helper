@@ -28,7 +28,7 @@
                     :props="props"
                   >
                     <q-td key="pattern" :props="props">
-                      <q-badge class="text-subtitle1" color="primary">
+                      <q-badge class="text-subtitle1 text-weight-regular" color="primary">
                         {{ props.row.pattern }}
                       </q-badge>
                     </q-td>
@@ -112,51 +112,99 @@ export default {
           body: [
             {
               pattern: "\\c",
-              description: "Управляющий символ"
+              description: "characterClassesItem1"
             },
             {
               pattern: "\\s",
-              description: "Пробел"
+              description: "characterClassesItem2"
             },
             {
               pattern: "\\S",
-              description: "Не пробел"
+              description: "characterClassesItem3"
             },
             {
               pattern: "\\d",
-              description: "Цифра"
+              description: "characterClassesItem4"
             },
             {
               pattern: "\\D",
-              description: "Не цифра"
+              description: "characterClassesItem5"
             },
             {
               pattern: "\\w",
-              description: "Слово"
+              description: "characterClassesItem6"
             },
             {
               pattern: "\\W",
-              description: "Не слово"
+              description: "characterClassesItem7"
             },
             {
               pattern: "\\xhh",
-              description: "Шестнадцатиричный символ hh"
+              description: "characterClassesItem8"
             },
             {
-              pattern: "\\0xxx",
-              description: "Восмиричный символ xxx"
+              pattern: "\\Oxxx",
+              description: "characterClassesItem9"
             }
           ]
         },
         posix: {
           header: {
-            title: "POSIX",
+            title: "posix",
             icon: "closed_caption"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "[:upper:]",
+              description: "Буквы в верхнем регистре"
+            },
+            {
+              pattern: "[:lower:]",
+              description: "Буквы в нижнем регистре"
+            },
+            {
+              pattern: "[:alpha:]",
+              description: "Все буквы"
+            },
+            {
+              pattern: "[:alnum:]",
+              description: "Буквы и цифры"
+            },
+            {
+              pattern: "[:digit:]",
+              description: "Цифры"
+            },
+            {
+              pattern: "[:xdigit:]",
+              description: "Шестнадцатиричные цифры"
+            },
+            {
+              pattern: "[:punct:]",
+              description: "Пунктуация"
+            },
+            {
+              pattern: "[:blank:]",
+              description: "Пробел и табуляция"
+            },
+            {
+              pattern: "[:space:]",
+              description: "Пустые символы"
+            },
+            {
+              pattern: "[:cntrl:]",
+              description: "Управляющие символы"
+            },
+            {
+              pattern: "[:graph:]",
+              description: "Печатные символы"
+            },
+            {
+              pattern: "[:print:]",
+              description: "Печатные символы и пробелы"
+            },
+            {
+              pattern: "[:word:]",
+              description: "Буквы, цифры и подчеркивание"
             }
           ]
         },
