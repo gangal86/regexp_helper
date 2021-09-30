@@ -2,7 +2,7 @@
   <div class="column q-pa-xs">
     <q-card flat bordered>
       <q-card-section>
-        <div class="q-pa-xs">
+        <div class="q-pa-xs q-mb-sm">
           <q-badge
             class="q-mb-sm"
             outline
@@ -13,11 +13,12 @@
             <q-input
               class="col-sm-10 col-xs-12"
               outlined
+              clearable
               v-model="regexpText"
               dense
             />
             <q-btn
-              class="col-sm col-xs-12"
+              class="col-sm col-xs-12 text-weight-regular"
               color="primary"
               :label="$t('btnTestRegExp')"
               @click="testRegExp"
@@ -35,6 +36,7 @@
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="beforeSearchingTextIs"
                   dense
                 />
@@ -44,6 +46,7 @@
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="startSearchingTextIs"
                   dense
                 />
@@ -82,6 +85,7 @@
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="afterSearchingTextIs"
                   dense
                 />
@@ -91,6 +95,7 @@
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="endSearchingTextIs"
                   dense
                 />
@@ -170,15 +175,16 @@ export default {
   methods: {
     testRegExp() {
       let regExp = new RegExp(this.regexpText, "g");
+      this.sourceText = this.sourceText === null? '': this.sourceText;
       let matchAll = this.sourceText.matchAll(regExp);
       matchAll = Array.from(matchAll).join("\n");
       this.matchResult = matchAll;
     },
     fillRegExp() {
-      let beforeSearchingTextIs = this.beforeSearchingTextIs;
-      let startSearchingTextIs = this.startSearchingTextIs;
-      let endSearchingTextIs = this.endSearchingTextIs;
-      let afterSearchingTextIs = this.afterSearchingTextIs;
+      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? '': this.beforeSearchingTextIs;
+      let startSearchingTextIs = this.startSearchingTextIs === null? '': this.startSearchingTextIs;
+      let endSearchingTextIs = this.endSearchingTextIs === null? '': this.endSearchingTextIs;
+      let afterSearchingTextIs = this.afterSearchingTextIs === null? '': this.afterSearchingTextIs;
       let middlePartRegExp = ".*";
 
       if (this.checkAllowHyphenation) {

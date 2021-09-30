@@ -33,7 +33,7 @@
                       </q-badge>
                     </q-td>
                     <q-td key="description" :props="props">
-                      <div class="text-subtitle1">
+                      <div class="text-subtitle2 text-weight-regular text-primary">
                         {{ $t(props.row.description) }}
                       </div>
                     </q-td>
@@ -72,35 +72,35 @@ export default {
           body: [
             {
               pattern: "^",
-              description: "anchors1"
+              description: "anchorsItem1"
             },
             {
               pattern: "\\A",
-              description: "Начало текста"
+              description: "anchorsItem2"
             },
             {
               pattern: "$",
-              description: "Конец строки"
+              description: "anchorsItem3"
             },
             {
               pattern: "\\Z",
-              description: "Конец текста"
+              description: "anchorsItem4"
             },
             {
               pattern: "\\b",
-              description: "Граница слова"
+              description: "anchorsItem5"
             },
             {
               pattern: "\\B",
-              description: "НЕ граница слова"
+              description: "anchorsItem6"
             },
             {
               pattern: "\\<",
-              description: "Начало слова"
+              description: "anchorsItem7"
             },
             {
               pattern: "\\>",
-              description: "Конец слова"
+              description: "anchorsItem8"
             }
           ]
         },
@@ -111,8 +111,40 @@ export default {
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "\\c",
+              description: "Управляющий символ"
+            },
+            {
+              pattern: "\\s",
+              description: "Пробел"
+            },
+            {
+              pattern: "\\S",
+              description: "Не пробел"
+            },
+            {
+              pattern: "\\d",
+              description: "Цифра"
+            },
+            {
+              pattern: "\\D",
+              description: "Не цифра"
+            },
+            {
+              pattern: "\\w",
+              description: "Слово"
+            },
+            {
+              pattern: "\\W",
+              description: "Не слово"
+            },
+            {
+              pattern: "\\xhh",
+              description: "Шестнадцатиричный символ hh"
+            },
+            {
+              pattern: "\\0xxx",
+              description: "Восмиричный символ xxx"
             }
           ]
         },

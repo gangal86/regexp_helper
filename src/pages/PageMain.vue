@@ -10,8 +10,8 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="regexpConstructor" :label="$t('constructorTabTitle')" />
-          <q-tab name="cheatSheet" :label="$t('cheatSheetTabTitle')" />
+          <q-tab name="regexpConstructor">{{ $t('constructorTabTitle') }}</q-tab>
+          <q-tab name="cheatSheet">{{ $t('cheatSheetTabTitle') }}</q-tab>
         </q-tabs>
 
         <q-separator />
