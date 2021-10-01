@@ -47,4 +47,13 @@ export default {
   posixItem12: 'Печатные символы и пробелы',
   posixItem13: 'Буквы, цифры и подчеркивание',
   assertions: 'Утверждения',
+  assertionsItem1: 'Вперед смотрящее',
+  assertionsItem2: 'Отрицательное вперед смотрящее',
+  assertionsItem3: 'Назад смотрящее',
+  assertionsItem4: 'Отрицательное назад смотрящее',
+  assertionsItem5: 'Однократное подвыражение',
+  assertionsItem6: 'Условие [если, то]',
+  assertionsItem7: 'Условие [если, то, а иначе]',
+  assertionsItem8: 'Комментарий',
+  quantifiers: 'Кванторы',
 }

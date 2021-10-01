@@ -47,4 +47,13 @@ export default {
   posixItem12: 'Printed characters and spaces',
   posixItem13: 'Digits, letters and underscore',
   assertions: 'Assertions',
+  assertionsItem1: 'Lookahead assertion',
+  assertionsItem2: 'Negative lookahead',
+  assertionsItem3: 'Lookbehind assertion',
+  assertionsItem4: 'Negative lookbehind',
+  assertionsItem5: 'Once-only subexpression',
+  assertionsItem6: 'Condition [if then]',
+  assertionsItem7: 'Condition [if then else]',
+  assertionsItem8: 'Comment',
+  quantifiers: 'Quantifiers',
 }

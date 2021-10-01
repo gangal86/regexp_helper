@@ -215,48 +215,84 @@ export default {
           },
           body: [
             {
-              pattern: "?",
-              description: "Вперед смотрящее"
+              pattern: "?=",
+              description: "assertionsItem1"
             },
             {
               pattern: "?!",
-              description: "Отрицательное вперед смотрящее"
+              description: "assertionsItem2"
             },
             {
               pattern: "?<=",
-              description: "Назад смотрящее"
+              description: "assertionsItem3"
             },
             {
               pattern: "?!=",
-              description: "Отрицательное назад смотрящее"
+              description: "assertionsItem4"
             },
             {
               pattern: "?>",
-              description: "Однократное подвыражение"
+              description: "assertionsItem5"
             },
             {
               pattern: "?()",
-              description: "Условие [если, то]"
+              description: "assertionsItem6"
             },
             {
               pattern: "?()|",
-              description: "Условие [если, то, а иначе]"
+              description: "assertionsItem7"
             },
             {
               pattern: "?#",
-              description: "Комментарий"
+              description: "assertionsItem8"
             },
           ]
         },
         quantifiers: {
           header: {
-            title: "Кванторы",
+            title: "quantifiers",
             icon: "graphic_eq"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "*",
+              description: "0 или больше"
+            },
+            {
+              pattern: "*?",
+              description: "0 или больше, нежадный"
+            },
+            {
+              pattern: "+",
+              description: "1 или больше"
+            },
+            {
+              pattern: "+?",
+              description: "1 или большеб нежадный"
+            },
+            {
+              pattern: "?",
+              description: "0 или 1"
+            },
+            {
+              pattern: "??",
+              description: "0 или 1, нежадный"
+            },
+            {
+              pattern: "{3}",
+              description: "Ровно 3"
+            },
+            {
+              pattern: "{3,}",
+              description: "3 или больше"
+            },
+            {
+              pattern: "{3,5}",
+              description: "3,4 или 5"
+            },
+            {
+              pattern: "{3,5}?",
+              description: "3,4 или 5, нежадный"
             }
           ]
         },
