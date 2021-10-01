@@ -245,7 +245,7 @@ export default {
             {
               pattern: "?#",
               description: "assertionsItem8"
-            },
+            }
           ]
         },
         quantifiers: {
@@ -256,55 +256,91 @@ export default {
           body: [
             {
               pattern: "*",
-              description: "0 или больше"
+              description: "quantifiersItem1"
             },
             {
               pattern: "*?",
-              description: "0 или больше, нежадный"
+              description: "quantifiersItem2"
             },
             {
               pattern: "+",
-              description: "1 или больше"
+              description: "quantifiersItem3"
             },
             {
               pattern: "+?",
-              description: "1 или большеб нежадный"
+              description: "quantifiersItem4"
             },
             {
               pattern: "?",
-              description: "0 или 1"
+              description: "quantifiersItem5"
             },
             {
               pattern: "??",
-              description: "0 или 1, нежадный"
+              description: "quantifiersItem6"
             },
             {
               pattern: "{3}",
-              description: "Ровно 3"
+              description: "quantifiersItem7"
             },
             {
               pattern: "{3,}",
-              description: "3 или больше"
+              description: "quantifiersItem8"
             },
             {
               pattern: "{3,5}",
-              description: "3,4 или 5"
+              description: "quantifiersItem9"
             },
             {
               pattern: "{3,5}?",
-              description: "3,4 или 5, нежадный"
+              description: "quantifiersItem10"
             }
           ]
         },
         specialCharacters: {
           header: {
-            title: "Специальные символы",
+            title: "specialCharacters",
             icon: "push_pin"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "\\",
+              description: "Экранирующий символ"
+            },
+            {
+              pattern: "\\n",
+              description: "Новая строка"
+            },
+            {
+              pattern: "\\r",
+              description: "Возврат каретки"
+            },
+            {
+              pattern: "\\t",
+              description: "Табуляция"
+            },
+            {
+              pattern: "\\v",
+              description: "Вертикальная табуляция"
+            },
+            {
+              pattern: "\\f",
+              description: "Новая страница"
+            },
+            {
+              pattern: "\\a",
+              description: "Звуковой сигнал"
+            },
+            {
+              pattern: "[\\b]",
+              description: "Возврат на один символ"
+            },
+            {
+              pattern: "\\e",
+              description: "Escape-символ"
+            },
+            {
+              pattern: "\\N{name}",
+              description: "Именованый символ"
             }
           ]
         },
