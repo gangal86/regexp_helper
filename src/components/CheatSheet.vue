@@ -156,68 +156,96 @@ export default {
           body: [
             {
               pattern: "[:upper:]",
-              description: "Буквы в верхнем регистре"
+              description: "posixItem1"
             },
             {
               pattern: "[:lower:]",
-              description: "Буквы в нижнем регистре"
+              description: "posixItem2"
             },
             {
               pattern: "[:alpha:]",
-              description: "Все буквы"
+              description: "posixItem3"
             },
             {
               pattern: "[:alnum:]",
-              description: "Буквы и цифры"
+              description: "posixItem4"
             },
             {
               pattern: "[:digit:]",
-              description: "Цифры"
+              description: "posixItem5"
             },
             {
               pattern: "[:xdigit:]",
-              description: "Шестнадцатиричные цифры"
+              description: "posixItem6"
             },
             {
               pattern: "[:punct:]",
-              description: "Пунктуация"
+              description: "posixItem7"
             },
             {
               pattern: "[:blank:]",
-              description: "Пробел и табуляция"
+              description: "posixItem8"
             },
             {
               pattern: "[:space:]",
-              description: "Пустые символы"
+              description: "posixItem9"
             },
             {
               pattern: "[:cntrl:]",
-              description: "Управляющие символы"
+              description: "posixItem10"
             },
             {
               pattern: "[:graph:]",
-              description: "Печатные символы"
+              description: "posixItem11"
             },
             {
               pattern: "[:print:]",
-              description: "Печатные символы и пробелы"
+              description: "posixItem12"
             },
             {
               pattern: "[:word:]",
-              description: "Буквы, цифры и подчеркивание"
+              description: "posixItem13"
             }
           ]
         },
         assertions: {
           header: {
-            title: "Утверждения",
+            title: "assertions",
             icon: "change_history"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
-            }
+              pattern: "?",
+              description: "Вперед смотрящее"
+            },
+            {
+              pattern: "?!",
+              description: "Отрицательное вперед смотрящее"
+            },
+            {
+              pattern: "?<=",
+              description: "Назад смотрящее"
+            },
+            {
+              pattern: "?!=",
+              description: "Отрицательное назад смотрящее"
+            },
+            {
+              pattern: "?>",
+              description: "Однократное подвыражение"
+            },
+            {
+              pattern: "?()",
+              description: "Условие [если, то]"
+            },
+            {
+              pattern: "?()|",
+              description: "Условие [если, то, а иначе]"
+            },
+            {
+              pattern: "?#",
+              description: "Комментарий"
+            },
           ]
         },
         quantifiers: {
