@@ -304,55 +304,94 @@ export default {
           body: [
             {
               pattern: "\\",
-              description: "Экранирующий символ"
+              description: "specialCharactersItem1"
             },
             {
               pattern: "\\n",
-              description: "Новая строка"
+              description: "specialCharactersItem2"
             },
             {
               pattern: "\\r",
-              description: "Возврат каретки"
+              description: "specialCharactersItem3"
             },
             {
               pattern: "\\t",
-              description: "Табуляция"
+              description: "specialCharactersItem4"
             },
             {
               pattern: "\\v",
-              description: "Вертикальная табуляция"
+              description: "specialCharactersItem5"
             },
             {
               pattern: "\\f",
-              description: "Новая страница"
+              description: "specialCharactersItem6"
             },
             {
               pattern: "\\a",
-              description: "Звуковой сигнал"
+              description: "specialCharactersItem7"
             },
             {
               pattern: "[\\b]",
-              description: "Возврат на один символ"
+              description: "specialCharactersItem8"
             },
             {
               pattern: "\\e",
-              description: "Escape-символ"
+              description: "specialCharactersItem9"
             },
             {
               pattern: "\\N{name}",
-              description: "Именованый символ"
+              description: "specialCharactersItem10"
             }
           ]
         },
         stringReplacement: {
           header: {
-            title: "Подстановка строк",
+            title: "stringReplacement",
             icon: "low_priority"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "$n",
+              description: "n-ая непассивная группа"
+            },
+            {
+              pattern: "$2",
+              description: "«xyz» в /^(abc(xyz))$/"
+            }
+            ,
+            {
+              pattern: "$1",
+              description: "«xyz» в /^(?:abc)(xyz)$/"
+            }
+            ,
+            {
+              pattern: "$`",
+              description: "Перед найденной строкой"
+            }
+            ,
+            {
+              pattern: "$'",
+              description: "После найденной строки"
+            }
+            ,
+            {
+              pattern: "$+",
+              description: "Последняя найденная строка"
+            }
+            ,
+            {
+              pattern: "$&",
+              description: "Найденная строка целиком"
+            }
+            ,
+            {
+              pattern: "$_",
+              description: "Исходный текст целиком"
+            }
+            ,
+            {
+              pattern: "$$",
+              description: "Символ «$»"
             }
           ]
         },
