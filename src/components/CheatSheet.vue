@@ -352,58 +352,94 @@ export default {
           body: [
             {
               pattern: "$n",
-              description: "n-ая непассивная группа"
+              description: "stringReplacementItem1"
             },
             {
               pattern: "$2",
-              description: "«xyz» в /^(abc(xyz))$/"
+              description: "stringReplacementItem2"
             }
             ,
             {
               pattern: "$1",
-              description: "«xyz» в /^(?:abc)(xyz)$/"
+              description: "stringReplacementItem3"
             }
             ,
             {
               pattern: "$`",
-              description: "Перед найденной строкой"
+              description: "stringReplacementItem4"
             }
             ,
             {
               pattern: "$'",
-              description: "После найденной строки"
+              description: "stringReplacementItem5"
             }
             ,
             {
               pattern: "$+",
-              description: "Последняя найденная строка"
+              description: "stringReplacementItem6"
             }
             ,
             {
               pattern: "$&",
-              description: "Найденная строка целиком"
+              description: "stringReplacementItem7"
             }
             ,
             {
               pattern: "$_",
-              description: "Исходный текст целиком"
+              description: "stringReplacementItem8"
             }
             ,
             {
               pattern: "$$",
-              description: "Символ «$»"
+              description: "stringReplacementItem9"
             }
           ]
         },
         ranges: {
           header: {
-            title: "Диапазоны",
+            title: "ranges",
             icon: "format_line_spacing"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: ".",
+              description: "Любой символ, кроме переноса строки (\\n)"
+            },
+            {
+              pattern: "(a|b)",
+              description: "a или b"
+            },
+            {
+              pattern: "(...)",
+              description: "Группа"
+            },
+            {
+              pattern: "(?:...)",
+              description: "Пассивная группа"
+            },
+            {
+              pattern: "[abc]",
+              description: "Диапазон (a или b или c)"
+            },
+            {
+              pattern: "[^abc]",
+              description: "Не a, не b и не c"
+            },
+            {
+              pattern: "[a-q]",
+              description: "Буква между a и q"
+            },
+            {
+              pattern: "[A-Q]",
+              description: "Буква в верхнем регистре между A и Q"
+            },
+            {
+              pattern: "[0-7]",
+              description: "Цифра между 0 и 7"
+            },
+            {
+              pattern: "\\n",
+              description: "n-ая группа/подшаблон"
             }
           ]
         },
