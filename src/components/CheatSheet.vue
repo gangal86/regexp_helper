@@ -403,55 +403,79 @@ export default {
           body: [
             {
               pattern: ".",
-              description: "Любой символ, кроме переноса строки (\\n)"
+              description: "rangesItem1"
             },
             {
               pattern: "(a|b)",
-              description: "a или b"
+              description: "rangesItem2"
             },
             {
               pattern: "(...)",
-              description: "Группа"
+              description: "rangesItem3"
             },
             {
               pattern: "(?:...)",
-              description: "Пассивная группа"
+              description: "rangesItem4"
             },
             {
               pattern: "[abc]",
-              description: "Диапазон (a или b или c)"
+              description: "rangesItem5"
             },
             {
               pattern: "[^abc]",
-              description: "Не a, не b и не c"
+              description: "rangesItem6"
             },
             {
               pattern: "[a-q]",
-              description: "Буква между a и q"
+              description: "rangesItem7"
             },
             {
               pattern: "[A-Q]",
-              description: "Буква в верхнем регистре между A и Q"
+              description: "rangesItem8"
             },
             {
               pattern: "[0-7]",
-              description: "Цифра между 0 и 7"
+              description: "rangesItem9"
             },
             {
               pattern: "\\n",
-              description: "n-ая группа/подшаблон"
+              description: "rangesItem10"
             }
           ]
         },
         patternModifiers: {
           header: {
-            title: "Модификаторы шаблонов",
+            title: "patternModifiers",
             icon: "auto_fix_high"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "g",
+              description: "Глобальный поиск"
+            },
+            {
+              pattern: "i",
+              description: "Регистронезависимый шаблон"
+            },
+            {
+              pattern: "m",
+              description: "Многострочный текст"
+            },
+            {
+              pattern: "s",
+              description: "Считать текст одной строкой"
+            },
+            {
+              pattern: "x",
+              description: "Разрешить комментарии и пробелы в шаблоне"
+            },
+            {
+              pattern: "e",
+              description: "Выполнение подстановки"
+            },
+            {
+              pattern: "U",
+              description: "Нежадный шаблон"
             }
           ]
         },
