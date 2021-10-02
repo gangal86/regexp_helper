@@ -10,8 +10,8 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="regexpConstructor" label="Конструктор" />
-          <q-tab name="cheatSheet" label="Шпаргалка" />
+          <q-tab name="regexpConstructor">{{ $t('constructorTabTitle') }}</q-tab>
+          <q-tab name="cheatSheet">{{ $t('cheatSheetTabTitle') }}</q-tab>
         </q-tabs>
 
         <q-separator />
@@ -32,7 +32,7 @@
 
 <script>
 import RegexpConstructor from "components/RegexpConstructor"
-import CheatSheet from "components/CheatSheet.vue"
+import CheatSheet from "components/CheatSheet"
 export default {
   name: "PageMain",
   components: {

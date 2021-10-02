@@ -2,24 +2,25 @@
   <div class="column q-pa-xs">
     <q-card flat bordered>
       <q-card-section>
-        <div class="q-pa-xs">
+        <div class="q-pa-xs q-mb-sm">
           <q-badge
             class="q-mb-sm"
             outline
             color="primary"
-            label="Текст регулярного выражения:"
+            :label="$t('labelRegexpText')"
           />
           <div class="row q-gutter-sm">
             <q-input
               class="col-sm-10 col-xs-12"
               outlined
+              clearable
               v-model="regexpText"
               dense
             />
             <q-btn
-              class="col-sm col-xs-12"
+              class="col-sm col-xs-12 text-weight-regular"
               color="primary"
-              label="Тест"
+              :label="$t('btnTestRegExp')"
               @click="testRegExp"
             />
           </div>
@@ -30,20 +31,22 @@
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary"
-                  >Перед искомым текстом всегда есть:</q-badge
+                  >{{ $t('labelBeforeSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="beforeSearchingTextIs"
                   dense
                 />
                 <q-badge outline color="primary"
-                  >Искомый текст всегда начинается с:</q-badge
+                  >{{ $t('labelStartSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="startSearchingTextIs"
                   dense
                 />
@@ -53,19 +56,19 @@
             <div class="col-sm col-xs-12 q-pa-xs  fix-standart-grid">
               <div class="q-gutter-sm text-caption text-primary">
                 <q-badge class="q-ml-md" outline color="primary"
-                  >В центре искомого текста:</q-badge
+                  >{{ $t('labelInTextCenter') }}</q-badge
                 >
                 <div class="column">
                   <q-checkbox
                     v-model="checkAllowHyphenation"
-                    label="Разрешить переносы"
+                    :label="$t('labelAllowHyphenation')"
                     keep-color
                     color="primary"
                     size="md"
                   />
                   <q-checkbox
                     v-model="checkShortestMatch"
-                    label="Самое короткое совпадение"
+                    :label="$t('labelShortestMatch')"
                     keep-color
                     color="primary"
                     size="md"
@@ -77,20 +80,22 @@
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary"
-                  >Это идет после искомого текста:</q-badge
+                  >{{ $t('labelAfterSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="afterSearchingTextIs"
                   dense
                 />
                 <q-badge outline color="primary"
-                  >Этим заканчивается искомый текст:</q-badge
+                  >{{ $t('labelEndSearchingTextIs') }}</q-badge
                 >
                 <q-input
                   class="q-mb-sm"
                   outlined
+                  clearable
                   v-model="endSearchingTextIs"
                   dense
                 />
@@ -101,7 +106,7 @@
           <div class="row">
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">Текст для обработки:</q-badge>
+                <q-badge outline color="primary">{{ $t('labelSourceText') }}</q-badge>
                 <q-input
                   v-model="sourceText"
                   filled
@@ -114,7 +119,7 @@
 
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">Результат обработки:</q-badge>
+                <q-badge outline color="primary">{{ $t('labelMatchResult') }}</q-badge>
                 <q-input
                   v-model="matchResult"
                   filled
@@ -170,15 +175,16 @@ export default {
   methods: {
     testRegExp() {
       let regExp = new RegExp(this.regexpText, "g");
+      this.sourceText = this.sourceText === null? '': this.sourceText;
       let matchAll = this.sourceText.matchAll(regExp);
       matchAll = Array.from(matchAll).join("\n");
       this.matchResult = matchAll;
     },
     fillRegExp() {
-      let beforeSearchingTextIs = this.beforeSearchingTextIs;
-      let startSearchingTextIs = this.startSearchingTextIs;
-      let endSearchingTextIs = this.endSearchingTextIs;
-      let afterSearchingTextIs = this.afterSearchingTextIs;
+      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? '': this.beforeSearchingTextIs;
+      let startSearchingTextIs = this.startSearchingTextIs === null? '': this.startSearchingTextIs;
+      let endSearchingTextIs = this.endSearchingTextIs === null? '': this.endSearchingTextIs;
+      let afterSearchingTextIs = this.afterSearchingTextIs === null? '': this.afterSearchingTextIs;
       let middlePartRegExp = ".*";
 
       if (this.checkAllowHyphenation) {
