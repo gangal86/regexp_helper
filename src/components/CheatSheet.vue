@@ -451,31 +451,31 @@ export default {
           body: [
             {
               pattern: "g",
-              description: "Глобальный поиск"
+              description: "patternModifiersItem1"
             },
             {
               pattern: "i",
-              description: "Регистронезависимый шаблон"
+              description: "patternModifiersItem2"
             },
             {
               pattern: "m",
-              description: "Многострочный текст"
+              description: "patternModifiersItem3"
             },
             {
               pattern: "s",
-              description: "Считать текст одной строкой"
+              description: "patternModifiersItem4"
             },
             {
               pattern: "x",
-              description: "Разрешить комментарии и пробелы в шаблоне"
+              description: "patternModifiersItem5"
             },
             {
               pattern: "e",
-              description: "Выполнение подстановки"
+              description: "patternModifiersItem6"
             },
             {
               pattern: "U",
-              description: "Нежадный шаблон"
+              description: "patternModifiersItem7"
             }
           ]
         },

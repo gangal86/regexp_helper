@@ -99,4 +99,11 @@ export default {
   rangesItem9: 'Цифра между 0 и 7',
   rangesItem10: 'n-ая группа/подшаблон',
   patternModifiers: 'Модификаторы шаблонов',
+  patternModifiersItem1: 'Глобальный поиск',
+  patternModifiersItem2: 'Регистронезависимый шаблон',
+  patternModifiersItem3: 'Многострочный текст',
+  patternModifiersItem4: 'Считать текст одной строкой',
+  patternModifiersItem5: 'Разрешить комментарии и пробелы в шаблоне',
+  patternModifiersItem6: 'Выполнение подстановки',
+  patternModifiersItem7: 'Нежадный шаблон',
 }

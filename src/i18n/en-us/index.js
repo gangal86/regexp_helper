@@ -99,4 +99,11 @@ export default {
   rangesItem9: 'Digit between 0 and 7',
   rangesItem10: 'nth group/subpattern',
   patternModifiers: 'Pattern modifiers',
+  patternModifiersItem1: 'Global match',
+  patternModifiersItem2: 'Case-insensitive',
+  patternModifiersItem3: 'Multiple lines',
+  patternModifiersItem4: 'Treat string as single line',
+  patternModifiersItem5: 'Allow comments and white space in pattern',
+  patternModifiersItem6: 'Evaluate replacement',
+  patternModifiersItem7: 'Ungreedy pattern',
 }
