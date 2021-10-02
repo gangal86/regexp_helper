@@ -481,13 +481,13 @@ export default {
         },
         metacharacters: {
           header: {
-            title: "Мета-символы (экранируются)",
+            title: "metacharacters",
             icon: "settings_ethernet"
           },
           body: [
             {
-              pattern: "pattern",
-              description: "description"
+              pattern: "< ( [ { ^ - = $ ! | ] } ) ? * + . >",
+              description: "metacharactersItem1"
             }
           ]
         }

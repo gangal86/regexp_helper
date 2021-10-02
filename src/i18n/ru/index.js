@@ -106,4 +106,6 @@ export default {
   patternModifiersItem5: 'Разрешить комментарии и пробелы в шаблоне',
   patternModifiersItem6: 'Выполнение подстановки',
   patternModifiersItem7: 'Нежадный шаблон',
+  metacharacters: 'Мета-символы (экранируются)',
+  metacharactersItem1: 'Мета-символы экранируются символом \'\\\'',
 }

@@ -106,4 +106,6 @@ export default {
   patternModifiersItem5: 'Allow comments and white space in pattern',
   patternModifiersItem6: 'Evaluate replacement',
   patternModifiersItem7: 'Ungreedy pattern',
+  metacharacters: 'Metacharacters (must be escaped)',
+  metacharactersItem1: 'Metacharacters escaped with \'\\\'',
 }
