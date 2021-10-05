@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "icons": "icongenie generate -i src/icon/icon_regexp_helper.png --skip-trim --png-color 29A19C --splashscreen-color 29A19C"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
