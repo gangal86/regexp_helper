@@ -1,7 +1,7 @@
 {
   "name": "regexp_helper",
-  "version": "0.0.1",
-  "description": "RegExp Helper",
+  "version": "1.0.0",
+  "description": "Assistant for creating and testing regular expressions",
   "productName": "RegExp Helper",
   "author": "Roman Gangal https://gangal.pro",
   "private": true,
@@ -9,6 +9,7 @@
     "lint": "eslint --ext .js,.vue ./",
     "icons": "icongenie generate -i src/icon/icon_regexp_helper.png --skip-trim --png-color 29A19C --splashscreen-color 29A19C",
     "android-dev": "quasar dev -m cordova -T android",
+    "android-build": "quasar build -m cordova -T android -- --buildConfig=\"../build.cordova.json\"",
     "pwa-dev": "quasar dev -m pwa",
     "pwa-build": "quasar build -m pwa"
   },

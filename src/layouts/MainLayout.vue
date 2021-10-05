@@ -47,9 +47,15 @@
               </div>
             </q-card-section>
             <q-card-actions vertical align="left">
-              <div class="text-subtitle2"><span class="text-weight-regular">{{ $t('aboutProgramDeveloper') }} </span><span class="text-weight-bold">Roman Gangal</span></div>
               <div class="text-subtitle2">
-                <span class="text-weight-regular">{{ $t('aboutProgramWebsite') }} </span><a href="https://gangal.pro" target="_blank" class="about-program-link"><span class="text-weight-bold">Gangal.Pro</span></a>
+                <span class="text-weight-regular">{{ $t('aboutProgramDeveloper') }} </span>
+                <span class="text-weight-bold">Roman Gangal</span>
+              </div>
+              <div class="text-subtitle2">
+                <span class="text-weight-regular">{{ $t('aboutProgramWebsite') }} </span>
+                <a href="https://gangal.pro" target="_blank" class="about-program-link">
+                  <span class="text-weight-bold">Gangal.Pro</span>
+                </a>
               </div>
             </q-card-actions>
           </q-card>

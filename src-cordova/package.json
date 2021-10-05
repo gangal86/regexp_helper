@@ -1,8 +1,8 @@
 {
-  "name": "org.cordova.quasar.app",
+  "name": "gangal.pro.regexp.helper",
   "displayName": "RegExp Helper",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Assistant for creating and testing regular expressions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
+  "author": "Roman Gangal https://gangal.pro",
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^9.1.0",

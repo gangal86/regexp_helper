@@ -1,6 +1,12 @@
 .DS_Store
 .thumbs.db
 node_modules
+quasar-release-key.jks.old
+quasar-release-key.jks
+quasar-debug-key.jks.old
+quasar-debug-key.jks
+build.cordova.json
+
 
 # Quasar core related directories
 .quasar
