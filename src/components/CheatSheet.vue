@@ -21,6 +21,7 @@
                 row-key="name"
                 hide-header
                 hide-bottom
+                :virtual-scroll="false"
               >
                 <template v-slot:body="props">
                   <q-tr
@@ -28,11 +29,11 @@
                     :props="props"
                   >
                     <q-td key="pattern" :props="props">
-                      <q-badge class="text-subtitle1 text-weight-regular" color="primary">
+                      <q-badge class="text-subtitle1 text-weight-regular cheat-sheet-items" color="primary">
                         {{ props.row.pattern }}
                       </q-badge>
                     </q-td>
-                    <q-td key="description" :props="props">
+                    <q-td class="cheat-sheet-items" key="description" :props="props">
                       <div class="text-subtitle2 text-weight-regular text-primary">
                         {{ $t(props.row.description) }}
                       </div>
@@ -60,7 +61,7 @@ export default {
         },
         {
           name: "description",
-          align: "center"
+          align: "left"
         }
       ],
       data: {
@@ -506,4 +507,7 @@ export default {
 .scroll-area {
     height: 800px;
   }
+.cheat-sheet-items {
+  white-space: normal;
+}
 </style>

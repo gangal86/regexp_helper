@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
-    "icons": "icongenie generate -i src/icon/icon_regexp_helper.png --skip-trim --png-color 29A19C --splashscreen-color 29A19C"
+    "icons": "icongenie generate -i src/icon/icon_regexp_helper.png --skip-trim --png-color 29A19C --splashscreen-color 29A19C",
+    "android-dev": "quasar dev -m cordova -T android"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
