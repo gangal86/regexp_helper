@@ -7,13 +7,7 @@ const routes = [
       { path: '', component: () => import('src/pages/PageMain.vue') }
     ]
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
-  {
-    path: '*',
-    component: () => import('src/pages/PageError404.vue')
-  }
+  { path: '*', redirect: '/' }, // catch all use case
 ]
 
 export default routes
