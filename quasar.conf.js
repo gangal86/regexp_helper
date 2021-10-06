@@ -180,12 +180,13 @@ module.exports = function (/* ctx */) {
 
         // Windows only
         // win32metadata: { ... }
+        platform: 'win32'
       },
 
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'regexp_helper'
+        appId: 'regexp_helper',
       },
 
       // More info: https://v1.quasar.dev/quasar-cli/developing-electron-apps/node-integration

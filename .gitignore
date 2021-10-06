@@ -11,6 +11,8 @@ build.cordova.json
 # Quasar core related directories
 .quasar
 /dist
+src-electron
+src-pwa
 
 # Cordova related directories and files
 /src-cordova/node_modules
