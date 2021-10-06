@@ -49,15 +49,22 @@
             <q-card-actions vertical align="left">
               <div class="text-subtitle2">
                 <span class="text-weight-regular">{{ $t('aboutProgramDeveloper') }} </span>
-                <span class="text-weight-bold">Roman Gangal</span>
-              </div>
-              <div class="text-subtitle2">
-                <span class="text-weight-regular">{{ $t('aboutProgramWebsite') }} </span>
                 <a href="https://gangal.pro" target="_blank" class="about-program-link">
-                  <span class="text-weight-bold">Gangal.Pro</span>
+                  <span class="text-weight-bold text-primary">Roman Gangal</span>
                 </a>
               </div>
             </q-card-actions>
+            <div class="native-mobile-only">
+              <q-separator inset />
+              <q-card-actions vertical align="left">
+                <div class="text-subtitle2">
+                <span class="text-weight-regular">{{ $t('aboutProgramWebVersion') }} </span>
+                <a href="https://regexp-helper.web.app" target="_blank" class="about-program-link">
+                  <span class="text-weight-bold text-primary">Regexp-helper.web.app</span>
+                </a>
+              </div>
+              </q-card-actions>
+            </div>
           </q-card>
         </q-card-section>
         <q-card-actions align="right">

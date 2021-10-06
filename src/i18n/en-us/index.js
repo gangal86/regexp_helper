@@ -16,7 +16,7 @@ export default {
   labelMenuAbout: 'About . . .',
   aboutProgramDescribe: 'Assistant for creating and testing regular expressions',
   aboutProgramDeveloper: 'Developer:',
-  aboutProgramWebsite: 'Website:',
+  aboutProgramWebVersion: 'Web-version:',
   anchors: 'Anchors',
   anchorsItem1: 'Start of string',
   anchorsItem2: 'Start of text',
