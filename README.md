@@ -1,26 +1,33 @@
-# RegExp Helper (regexp_helper)
+# RegExp Helper
 
-RegExp Helper
+<p>Assistant for creating and testing regular expressions + Cheat sheet.</p>
 
-## Install the dependencies
-```bash
-yarn
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-### Lint the files
-```bash
-yarn run lint
-```
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).
+<ul>
+  <li>
+    <a 
+      href="https://regexp-helper.web.app" 
+      alt="Web-version (PWA)" 
+      title="Web-version (PWA)" 
+      target="_blank">
+      Web-version (PWA)
+    </a>
+  </li>
+  <li>
+    <a 
+      href="https://play.google.com/store/apps/details?id=gangal.pro.regexp.helper" 
+      alt="Android-version" 
+      title="Android-version" 
+      target="_blank">
+      Android-version
+    </a>
+  </li>
+  <li>
+    <a 
+      href="https://drive.google.com/drive/folders/1fyZmUP6dnGBHld9fA2fa-8mHtgZ5VDj5?usp=sharing" 
+      alt="Windows-version" 
+      title="Windows-version" 
+      target="_blank">
+      Windows-version
+    </a>
+  </li>
+</ul>

@@ -505,7 +505,7 @@ export default {
   }
 }
 .scroll-area {
-    height: 800px;
+    height: 700px;
   }
 .cheat-sheet-items {
   white-space: normal;

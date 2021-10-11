@@ -26,6 +26,7 @@
           </q-tab-panel>
 
         </q-tab-panels>
+        <VersionLinks />
       </q-card>
   </q-page>
 </template>
@@ -33,11 +34,13 @@
 <script>
 import RegexpConstructor from "components/RegexpConstructor"
 import CheatSheet from "components/CheatSheet"
+import VersionLinks from "components/VersionLinks"
 export default {
   name: "PageMain",
   components: {
     RegexpConstructor,
-    CheatSheet
+    CheatSheet,
+    VersionLinks
   },
   data () {
     return {

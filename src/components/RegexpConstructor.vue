@@ -109,7 +109,7 @@
                 <q-badge outline color="primary">{{ $t('labelSourceText') }}</q-badge>
                 <q-input
                   v-model="sourceText"
-                  filled
+                  outlined
                   clearable
                   rows="14"
                   type="textarea"
@@ -122,7 +122,7 @@
                 <q-badge outline color="primary">{{ $t('labelMatchResult') }}</q-badge>
                 <q-input
                   v-model="matchResult"
-                  filled
+                  outlined
                   clearable
                   rows="14"
                   type="textarea"
