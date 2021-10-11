@@ -1,28 +1,42 @@
 {
   "name": "regexp_helper",
-  "version": "0.0.1",
-  "description": "RegExp Helper",
-  "productName": "RegExp Helper",
+  "version": "1.0.0",
+  "description": "Assistant for creating and testing regular expressions",
+  "productName": "RegExp_Helper",
   "author": "Roman Gangal https://gangal.pro",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "icons": "icongenie generate -i src/icon/icon_regexp_helper.png --skip-trim --png-color 29A19C --splashscreen-color 29A19C",
+    "android-dev": "quasar dev -m cordova -T android",
+    "android-build-bundle": "quasar build -m cordova -T android -- --buildConfig=\"../build.cordova.json\" -- --packageType=bundle",
+    "android-build-apk": "quasar build -m cordova -T android -- --buildConfig=\"../build.cordova.json\" -- --packageType=apk",
+    "pwa-dev": "quasar dev -m pwa",
+    "pwa-build": "quasar build -m pwa",
+    "electron-dev": "quasar dev -m electron",
+    "electron-build": "quasar build -m electron"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "quasar": "^1.0.0",
+    "vue-country-flag": "^2.2.0",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
     "babel-eslint": "^10.0.1",
+    "devtron": "^1.4.0",
+    "electron": "^9.0.0",
+    "electron-debug": "^3.0.1",
+    "electron-devtools-installer": "^3.0.0",
+    "electron-packager": "^14.1.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.7.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "workbox-webpack-plugin": "^5.0.0"
   },
   "browserslist": [
     "last 10 Chrome versions",

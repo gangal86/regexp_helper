@@ -1,16 +1,25 @@
 .DS_Store
 .thumbs.db
 node_modules
+quasar-release-key.jks.old
+quasar-release-key.jks
+quasar-debug-key.jks.old
+quasar-debug-key.jks
+build.cordova.json
+
 
 # Quasar core related directories
 .quasar
 /dist
+src-electron
+src-pwa
 
 # Cordova related directories and files
 /src-cordova/node_modules
 /src-cordova/platforms
 /src-cordova/plugins
 /src-cordova/www
+/src-cordova/res
 
 # Capacitor related directories and files
 /src-capacitor/www
