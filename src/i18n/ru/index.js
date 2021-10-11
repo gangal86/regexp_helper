@@ -16,7 +16,6 @@ export default {
   labelMenuAbout: 'О программе',
   aboutProgramDescribe: 'Помощник по созданию и тестированию регулярных выражений',
   aboutProgramDeveloper: 'Разработчик:',
-  aboutProgramWebVersion: 'Web-версия:',
   anchors: 'Якоря',
   anchorsItem1: 'Начало строки',
   anchorsItem2: 'Начало текста',

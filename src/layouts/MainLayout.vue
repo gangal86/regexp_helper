@@ -54,17 +54,6 @@
                 </a>
               </div>
             </q-card-actions>
-            <div class="native-mobile-only">
-              <q-separator inset />
-              <q-card-actions vertical align="left">
-                <div class="text-subtitle2">
-                <span class="text-weight-regular">{{ $t('aboutProgramWebVersion') }} </span>
-                <a href="https://regexp-helper.web.app" target="_blank" class="about-program-link">
-                  <span class="text-weight-bold text-primary">Regexp-helper.web.app</span>
-                </a>
-              </div>
-              </q-card-actions>
-            </div>
           </q-card>
         </q-card-section>
         <q-card-actions align="right">
@@ -125,6 +114,7 @@ export default {
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+    color: $primary;
   }
 }
 </style>
