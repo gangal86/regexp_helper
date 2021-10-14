@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "PageMain",
+  name: "CheatSheet",
   data() {
     return {
       columns: [
