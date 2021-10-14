@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="gangal.pro.regexp.helper" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="gangal.pro.regexp.helper" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>RegExp Helper</name>
     <description>Assistant for creating and testing regular expressions</description>
     <author email="gangal33@gmail.com" href="https://gangal.pro">

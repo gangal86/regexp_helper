@@ -187,12 +187,35 @@ export default {
       let afterSearchingTextIs = this.afterSearchingTextIs === null? '': this.afterSearchingTextIs;
       let middlePartRegExp = ".*";
 
+      let metacharacters = {
+          "\\\\":"\\\\",
+          " ":"\\ ", 
+          "\\?":"\\?",
+          "\\(":"\\(",
+          "\\[":"\\[",
+          "{":"\\{",
+          "\\^":"\\^",
+          "\\$":"\\$",
+          "\\|":"\\|",
+          "\\)":"\\)",
+          "\\*":"\\*",
+          "\\+":"\\+",
+          "\\.":"\\."
+        };
+      for (let key in metacharacters) {
+          let matchPattern = new RegExp(`${key}`, "g");
+          beforeSearchingTextIs = beforeSearchingTextIs.replace(matchPattern, metacharacters[key]);
+          startSearchingTextIs = startSearchingTextIs.replace(matchPattern, metacharacters[key]);
+          endSearchingTextIs = endSearchingTextIs.replace(matchPattern, metacharacters[key]);
+          afterSearchingTextIs = afterSearchingTextIs.replace(matchPattern, metacharacters[key]);
+      }
+
       if (this.checkAllowHyphenation) {
         middlePartRegExp = "[\\w\\W]*";
       }
 
       if (this.checkShortestMatch) {
-        middlePartRegExp = "*?";
+        middlePartRegExp = ".*?";
       }
 
       if (this.checkAllowHyphenation && this.checkShortestMatch) {
@@ -200,16 +223,11 @@ export default {
       }
 
       if (beforeSearchingTextIs != "") {
-        beforeSearchingTextIs = "(?<=" + this.beforeSearchingTextIs + ")";
+        beforeSearchingTextIs = "(?<=" + beforeSearchingTextIs + ")";
       }
       if (afterSearchingTextIs != "") {
-        afterSearchingTextIs = "(?=" + this.afterSearchingTextIs + ")";
+        afterSearchingTextIs = "(?=" + afterSearchingTextIs + ")";
       }
-
-      beforeSearchingTextIs = beforeSearchingTextIs.replace(/ /g, "\\ ");
-      startSearchingTextIs = startSearchingTextIs.replace(/ /g, "\\ ");
-      endSearchingTextIs = endSearchingTextIs.replace(/ /g, "\\ ");
-      afterSearchingTextIs = afterSearchingTextIs.replace(/ /g, "\\ ");
 
       this.regexpText =
         beforeSearchingTextIs +
