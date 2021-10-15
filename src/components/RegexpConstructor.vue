@@ -175,47 +175,48 @@ export default {
   methods: {
     testRegExp() {
       let regExp = new RegExp(this.regexpText, "g");
-      this.sourceText = this.sourceText === null? '': this.sourceText;
+      this.sourceText = this.sourceText === null? "": this.sourceText;
       let matchAll = this.sourceText.matchAll(regExp);
       matchAll = Array.from(matchAll).join("\n");
       this.matchResult = matchAll;
     },
     fillRegExp() {
-      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? '': this.beforeSearchingTextIs;
-      let startSearchingTextIs = this.startSearchingTextIs === null? '': this.startSearchingTextIs;
-      let endSearchingTextIs = this.endSearchingTextIs === null? '': this.endSearchingTextIs;
-      let afterSearchingTextIs = this.afterSearchingTextIs === null? '': this.afterSearchingTextIs;
+      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? "": this.beforeSearchingTextIs;
+      let startSearchingTextIs = this.startSearchingTextIs === null? "": this.startSearchingTextIs;
+      let endSearchingTextIs = this.endSearchingTextIs === null? "": this.endSearchingTextIs;
+      let afterSearchingTextIs = this.afterSearchingTextIs === null? "": this.afterSearchingTextIs;
       let middlePartRegExp = ".*";
 
-      let metacharacters = {
-          "\\\\":"\\\\",
-          "\\?":"\\?",
-          "\\(":"\\(",
-          "\\[":"\\[",
-          "\\^":"\\^",
-          "\\$":"\\$",
-          "\\|":"\\|",
-          "\\)":"\\)",
-          "\\*":"\\*",
-          "\\+":"\\+",
-          "\\.":"\\.",
-          "\\{":"\\{",
-          "\\ ":"\\ ",
-          "\\<":"\\<",
-          "\\-":"\\-",
-          "\\=":"\\=",
-          "\\!":"\\!",
-          "\\]":"\\]",
-          "\\}":"\\}",
-          "\\>":"\\>"
-        };
-      for (let key in metacharacters) {
-          let matchPattern = new RegExp(`${key}`, "g");
-          beforeSearchingTextIs = beforeSearchingTextIs.replace(matchPattern, metacharacters[key]);
-          startSearchingTextIs = startSearchingTextIs.replace(matchPattern, metacharacters[key]);
-          endSearchingTextIs = endSearchingTextIs.replace(matchPattern, metacharacters[key]);
-          afterSearchingTextIs = afterSearchingTextIs.replace(matchPattern, metacharacters[key]);
-      }
+      let metacharacters = [
+        "\\\\",
+        "\\?",
+        "\\(",
+        "\\[",
+        "\\^",
+        "\\$",
+        "\\|",
+        "\\)",
+        "\\*",
+        "\\+",
+        "\\.",
+        "\\{",
+        "\\ ",
+        "\\<",
+        "\\-",
+        "\\=",
+        "\\!",
+        "\\]",
+        "\\}",
+        "\\>"
+      ];
+
+      metacharacters.forEach(item => {
+        let matchPattern = new RegExp(`${item}`, "g");
+        beforeSearchingTextIs = beforeSearchingTextIs.replace(matchPattern, item);
+        startSearchingTextIs = startSearchingTextIs.replace(matchPattern, item);
+        endSearchingTextIs = endSearchingTextIs.replace(matchPattern, item);
+        afterSearchingTextIs = afterSearchingTextIs.replace(matchPattern, item);
+      })
 
       if (this.checkAllowHyphenation) {
         middlePartRegExp = "[\\w\\W]*";
