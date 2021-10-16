@@ -1,7 +1,7 @@
 {
   "name": "gangal.pro.regexp.helper",
   "displayName": "RegExp Helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Assistant for creating and testing regular expressions",
   "main": "index.js",
   "scripts": {

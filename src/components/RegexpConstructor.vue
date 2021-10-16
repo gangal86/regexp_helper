@@ -26,12 +26,16 @@
           </div>
         </div>
 
-        <q-scroll-area class="scroll-area">
+        <component 
+          :is="$q.platform.is.mobile?'q-scroll-area':'div'" 
+          :class="$q.platform.is.mobile?'scroll-area':'desktop-only'"
+        >
           <div class="row">
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary"
-                  >{{ $t('labelBeforeSearchingTextIs') }}</q-badge
+                <q-badge outline color="primary">
+                  {{ $t('labelBeforeSearchingTextIs') }}
+                </q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -40,9 +44,9 @@
                   v-model="beforeSearchingTextIs"
                   dense
                 />
-                <q-badge outline color="primary"
-                  >{{ $t('labelStartSearchingTextIs') }}</q-badge
-                >
+                <q-badge outline color="primary">
+                  {{ $t('labelStartSearchingTextIs') }}
+                </q-badge>
                 <q-input
                   class="q-mb-sm"
                   outlined
@@ -55,8 +59,9 @@
 
             <div class="col-sm col-xs-12 q-pa-xs  fix-standart-grid">
               <div class="q-gutter-sm text-caption text-primary">
-                <q-badge class="q-ml-md" outline color="primary"
-                  >{{ $t('labelInTextCenter') }}</q-badge
+                <q-badge class="q-ml-md" outline color="primary">
+                  {{ $t('labelInTextCenter') }}
+                </q-badge
                 >
                 <div class="column">
                   <q-checkbox
@@ -79,8 +84,9 @@
 
             <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary"
-                  >{{ $t('labelAfterSearchingTextIs') }}</q-badge
+                <q-badge outline color="primary">
+                  {{ $t('labelAfterSearchingTextIs') }}
+                </q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -89,8 +95,9 @@
                   v-model="afterSearchingTextIs"
                   dense
                 />
-                <q-badge outline color="primary"
-                  >{{ $t('labelEndSearchingTextIs') }}</q-badge
+                <q-badge outline color="primary">
+                  {{ $t('labelEndSearchingTextIs') }}
+                </q-badge
                 >
                 <q-input
                   class="q-mb-sm"
@@ -106,7 +113,9 @@
           <div class="row">
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">{{ $t('labelSourceText') }}</q-badge>
+                <q-badge outline color="primary">
+                  {{ $t('labelSourceText') }}
+                </q-badge>
                 <q-input
                   v-model="sourceText"
                   outlined
@@ -119,7 +128,9 @@
 
             <div class="col-sm col-xs-12 q-pa-xs">
               <div class="q-gutter-sm">
-                <q-badge outline color="primary">{{ $t('labelMatchResult') }}</q-badge>
+                <q-badge outline color="primary">
+                  {{ $t('labelMatchResult') }}
+                </q-badge>
                 <q-input
                   v-model="matchResult"
                   outlined
@@ -130,7 +141,7 @@
               </div>
             </div>
           </div>
-        </q-scroll-area>
+        </component>
       </q-card-section>
     </q-card>
   </div>
@@ -175,24 +186,55 @@ export default {
   methods: {
     testRegExp() {
       let regExp = new RegExp(this.regexpText, "g");
-      this.sourceText = this.sourceText === null? '': this.sourceText;
+      this.sourceText = this.sourceText === null? "": this.sourceText;
       let matchAll = this.sourceText.matchAll(regExp);
       matchAll = Array.from(matchAll).join("\n");
       this.matchResult = matchAll;
     },
     fillRegExp() {
-      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? '': this.beforeSearchingTextIs;
-      let startSearchingTextIs = this.startSearchingTextIs === null? '': this.startSearchingTextIs;
-      let endSearchingTextIs = this.endSearchingTextIs === null? '': this.endSearchingTextIs;
-      let afterSearchingTextIs = this.afterSearchingTextIs === null? '': this.afterSearchingTextIs;
+      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? "": this.beforeSearchingTextIs;
+      let startSearchingTextIs = this.startSearchingTextIs === null? "": this.startSearchingTextIs;
+      let endSearchingTextIs = this.endSearchingTextIs === null? "": this.endSearchingTextIs;
+      let afterSearchingTextIs = this.afterSearchingTextIs === null? "": this.afterSearchingTextIs;
       let middlePartRegExp = ".*";
+
+      let metacharacters = [
+        "\\\\",
+        "\\?",
+        "\\(",
+        "\\[",
+        "\\^",
+        "\\$",
+        "\\|",
+        "\\)",
+        "\\*",
+        "\\+",
+        "\\.",
+        "\\{",
+        "\\ ",
+        "\\<",
+        "\\-",
+        "\\=",
+        "\\!",
+        "\\]",
+        "\\}",
+        "\\>"
+      ];
+
+      metacharacters.forEach(item => {
+        let matchPattern = new RegExp(`${item}`, "g");
+        beforeSearchingTextIs = beforeSearchingTextIs.replace(matchPattern, item);
+        startSearchingTextIs = startSearchingTextIs.replace(matchPattern, item);
+        endSearchingTextIs = endSearchingTextIs.replace(matchPattern, item);
+        afterSearchingTextIs = afterSearchingTextIs.replace(matchPattern, item);
+      })
 
       if (this.checkAllowHyphenation) {
         middlePartRegExp = "[\\w\\W]*";
       }
 
       if (this.checkShortestMatch) {
-        middlePartRegExp = "*?";
+        middlePartRegExp = ".*?";
       }
 
       if (this.checkAllowHyphenation && this.checkShortestMatch) {
@@ -200,16 +242,11 @@ export default {
       }
 
       if (beforeSearchingTextIs != "") {
-        beforeSearchingTextIs = "(?<=" + this.beforeSearchingTextIs + ")";
+        beforeSearchingTextIs = "(?<=" + beforeSearchingTextIs + ")";
       }
       if (afterSearchingTextIs != "") {
-        afterSearchingTextIs = "(?=" + this.afterSearchingTextIs + ")";
+        afterSearchingTextIs = "(?=" + afterSearchingTextIs + ")";
       }
-
-      beforeSearchingTextIs = beforeSearchingTextIs.replace(/ /g, "\\ ");
-      startSearchingTextIs = startSearchingTextIs.replace(/ /g, "\\ ");
-      endSearchingTextIs = endSearchingTextIs.replace(/ /g, "\\ ");
-      afterSearchingTextIs = afterSearchingTextIs.replace(/ /g, "\\ ");
 
       this.regexpText =
         beforeSearchingTextIs +
