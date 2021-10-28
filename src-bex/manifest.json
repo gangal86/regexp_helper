@@ -30,9 +30,7 @@
   }],
   "permissions": [
     "<all_urls>",
-    "storage",
-    "tabs",
-    "activeTab"
+    "storage"
   ],
   "web_accessible_resources": [
     "www/*",
