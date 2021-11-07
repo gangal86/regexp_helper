@@ -30,4 +30,22 @@
       Windows-version
     </a>
   </li>
+  <li>
+    <a 
+      href="https://chrome.google.com/webstore/detail/regexp-helper/aieccklpajfdolmkkkpphhhfgbflejdj" 
+      alt="Google Chrome extension" 
+      title="Google Chrome extension" 
+      target="_blank">
+      Google Chrome extension
+    </a>
+  </li>
+  <li>
+    <a 
+      href="https://addons.mozilla.org/ru/firefox/addon/regexp-helper" 
+      alt="Mozilla Firefox extension" 
+      title="Mozilla Firefox extension" 
+      target="_blank">
+      Mozilla Firefox extension
+    </a>
+  </li>
 </ul>

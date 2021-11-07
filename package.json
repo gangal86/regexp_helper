@@ -14,7 +14,9 @@
     "pwa-dev": "quasar dev -m pwa",
     "pwa-build": "quasar build -m pwa",
     "electron-dev": "quasar dev -m electron",
-    "electron-build": "quasar build -m electron"
+    "electron-build": "quasar build -m electron",
+    "bex-dev": "quasar dev -m bex",
+    "bex-build": "quasar build -m bex"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
