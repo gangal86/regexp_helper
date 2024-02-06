@@ -1,66 +1,44 @@
 <template>
-  <q-layout class="main-layout" view="hHh lpR fFf">
+  <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
+
         <q-toolbar-title>
-          RegExp Helper
+          Quasar App
         </q-toolbar-title>
-        <q-btn
-          @click="selectLang('us')"
-          v-if="!countryFlagStatus"
-          flat
-          size="xs"
-          dense
-        >
-          <country-flag country="us" />
-        </q-btn>
-        <q-btn
-          @click="selectLang('rus')"
-          v-if="countryFlagStatus"
-          flat
-          size="xs"
-          dense
-        >
-          <country-flag country="rus" />
-        </q-btn>
-        <q-btn flat round dense icon="more_vert">
-          <q-menu auto-close>
-            <q-list class="menu-options">
-              <q-item @click="aboutProgram = !aboutProgram" clickable>
-                <q-item-section class="text-caption text-weight-bold text-primary">{{
-                  $t("labelMenuAbout")
-                }}</q-item-section>
-              </q-item>
-            </q-list>
-          </q-menu>
-        </q-btn>
+
+        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
-    <q-dialog v-model="aboutProgram">
-      <q-card>
-        <q-card-section class="column q-pb-xs">
-          <q-card>
-            <q-card-section class="bg-primary text-white">
-              <div class="text-h6">RegExp Helper</div>
-              <div class="text-subtitle2">
-                {{ $t('aboutProgramDescribe') }}
-              </div>
-            </q-card-section>
-            <q-card-actions vertical align="left">
-              <div class="text-subtitle2">
-                <span class="text-weight-regular">{{ $t('aboutProgramDeveloper') }} </span>
-                <a href="https://gangal.pro" target="_blank" class="about-program-link">
-                  <span class="text-weight-bold text-primary">Roman Gangal</span>
-                </a>
-              </div>
-            </q-card-actions>
-          </q-card>
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn flat label="OK" color="primary" v-close-popup />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
+
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+    >
+      <q-list>
+        <q-item-label
+          header
+        >
+          Essential Links
+        </q-item-label>
+
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
+    </q-drawer>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -68,53 +46,71 @@
 </template>
 
 <script>
-import { LocalStorage } from "quasar";
+import { defineComponent, ref } from 'vue'
+import EssentialLink from 'components/EssentialLink.vue'
 
-export default {
-  name: "MainLayout",
-  data() {
+const linksList = [
+  {
+    title: 'Docs',
+    caption: 'quasar.dev',
+    icon: 'school',
+    link: 'https://quasar.dev'
+  },
+  {
+    title: 'Github',
+    caption: 'github.com/quasarframework',
+    icon: 'code',
+    link: 'https://github.com/quasarframework'
+  },
+  {
+    title: 'Discord Chat Channel',
+    caption: 'chat.quasar.dev',
+    icon: 'chat',
+    link: 'https://chat.quasar.dev'
+  },
+  {
+    title: 'Forum',
+    caption: 'forum.quasar.dev',
+    icon: 'record_voice_over',
+    link: 'https://forum.quasar.dev'
+  },
+  {
+    title: 'Twitter',
+    caption: '@quasarframework',
+    icon: 'rss_feed',
+    link: 'https://twitter.quasar.dev'
+  },
+  {
+    title: 'Facebook',
+    caption: '@QuasarFramework',
+    icon: 'public',
+    link: 'https://facebook.quasar.dev'
+  },
+  {
+    title: 'Quasar Awesome',
+    caption: 'Community Quasar projects',
+    icon: 'favorite',
+    link: 'https://awesome.quasar.dev'
+  }
+]
+
+export default defineComponent({
+  name: 'MainLayout',
+
+  components: {
+    EssentialLink
+  },
+
+  setup () {
+    const leftDrawerOpen = ref(false)
+
     return {
-      aboutProgram: false,
-      lang: this.$i18n.locale,
-      countryFlagStatus: LocalStorage.getItem("countryFlagStatus") || false
-    };
-  },
-  watch: {
-    lang(lang) {
-      this.$i18n.locale = lang;
-      LocalStorage.set("locale", lang);
-    }
-  },
-  methods: {
-    selectLang(lang) {
-      if (lang == "rus") {
-        this.lang = "ru";
-        this.countryFlagStatus = false;
-        LocalStorage.set("countryFlagStatus", false);
-      }
-      if (lang == "us") {
-        this.lang = "en-us";
-        this.countryFlagStatus = true;
-        LocalStorage.set("countryFlagStatus", true);
+      essentialLinks: linksList,
+      leftDrawerOpen,
+      toggleLeftDrawer () {
+        leftDrawerOpen.value = !leftDrawerOpen.value
       }
     }
   }
-};
+})
 </script>
-
-<style lang="scss" scoped>
-.main-layout {
-  max-width: 1000px;
-  margin: 0px auto;
-}
-.menu-options {
-  min-width: 120px;
-}
-.about-program-link {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-    color: $primary;
-  }
-}
-</style>
