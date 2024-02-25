@@ -9,7 +9,7 @@ export default {
   labelAllowHyphenation: 'Allow hyphenation',
   labelShortestMatch: 'The shortest match',
   labelAfterSearchingText: 'After the text you are looking for there is:',
-  labelEndSearchingText: 'This ends the text you are looking for:',
+  labelEndSearchingText: 'This is the end of the text you are looking for:',
   labelSourceText: 'Text to be processed:',
   labelMatchResult: 'Processing result:',
   btnTestRegExp: 'Test',

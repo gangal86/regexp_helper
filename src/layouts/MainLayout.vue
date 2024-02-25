@@ -2,8 +2,8 @@
   <q-layout class="main-layout" view="hHh lpR fFf">
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title class="q-ml-xl">RegExp Helper</q-toolbar-title>
-        <div class="q-mr-xl">
+        <q-toolbar-title class="q-ml-sm">RegExp Helper</q-toolbar-title>
+        <div class="q-mr-sm">
           <q-btn
             v-if="currentLocale === 'ru'"
             @click="selectLang('en-us')"
@@ -47,5 +47,11 @@ const selectLang = (lang) => {
 .main-layout {
   max-width: 1000px;
   margin: 0px auto;
+}
+
+@media (max-width: 350px) {
+  .main-layout {
+    width: 350px;
+  }
 }
 </style>

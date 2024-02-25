@@ -245,9 +245,9 @@ watch(
 
 <style lang="scss" scoped>
 .scroll-area {
-  height: 500px;
+  height: 66vh;
 }
-@media (max-width: 800px) {
+@media (max-width: 730px) {
   .fix-standart-grid {
     min-width: 100%;
   }

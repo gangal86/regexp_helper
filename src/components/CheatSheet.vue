@@ -1,19 +1,19 @@
 <template>
-  <q-scroll-area class="scroll-area">
+  <q-scroll-area class="scroll-area q-pa-xs">
     <q-list separator bordered>
       <q-expansion-item
-        v-for="(dataItem, key) in data"
+        v-for="(item, key) in data"
         :key="key"
         group="somegroup"
-        :icon="dataItem['header']['icon']"
-        :label="$t(dataItem['header']['title'])"
+        :icon="item['header']['icon']"
+        :label="$t(item['header']['title'])"
         header-class="text-primary text-subtitle1"
       >
         <q-card>
           <q-card-section>
             <div class="q-pa-xs">
               <q-table
-                :rows="dataItem['body']"
+                :rows="item['body']"
                 :columns="columns"
                 :pagination="{ rowsNumber: 10 }"
                 bordered
@@ -487,13 +487,8 @@ const data = reactive({
 </script>
 
 <style lang="scss" scoped>
-@media (max-width: 800px) {
-  .scroll-area {
-    height: 500px;
-  }
-}
 .scroll-area {
-  height: 700px;
+  height: 66vh;
 }
 .cheat-sheet-items {
   white-space: normal;
