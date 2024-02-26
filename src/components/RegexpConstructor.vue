@@ -30,8 +30,8 @@
           :is="$q.platform.is.mobile ? 'q-scroll-area' : 'div'"
           :class="$q.platform.is.mobile ? 'scroll-area' : 'desktop-only'"
         >
-          <div class="row">
-            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+          <div class="row justify-between">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary">
                   {{ $t('labelBeforeSearchingText') }}
@@ -56,8 +56,8 @@
               </div>
             </div>
 
-            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
-              <div class="q-gutter-sm text-caption text-primary">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
+              <div class="q-gutter-sm q-ml-sm text-caption text-primary">
                 <q-badge class="q-ml-md" outline color="primary">
                   {{ $t('labelInTextCenter') }}
                 </q-badge>
@@ -80,7 +80,7 @@
               </div>
             </div>
 
-            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary">
                   {{ $t('labelAfterSearchingText') }}
@@ -166,10 +166,10 @@ const testRegExp = () => {
 };
 
 const fillRegExp = () => {
-  let beforeSearchingTextFill = beforeSearchingText.value;
-  let startSearchingTextFill = startSearchingText.value;
-  let endSearchingTextFill = endSearchingText.value;
-  let afterSearchingTextFill = afterSearchingText.value;
+  let beforeSearchingTextFill = beforeSearchingText.value || '';
+  let startSearchingTextFill = startSearchingText.value || '';
+  let endSearchingTextFill = endSearchingText.value || '';
+  let afterSearchingTextFill = afterSearchingText.value || '';
   let middlePartRegExp = '.*';
 
   const metacharacters = [
@@ -244,11 +244,8 @@ watch(
 </script>
 
 <style lang="scss" scoped>
-.scroll-area {
-  height: 66vh;
-}
-@media (max-width: 730px) {
-  .fix-standart-grid {
+@media (max-width: 800px) {
+  .fix-col {
     min-width: 100%;
   }
 }

@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
-    "icons": "icongenie generate -i src/assets/main.png --skip-trim --png-color 00838f --splashscreen-color 00838f",
+    "icons": "icongenie generate -i src/assets/main-icon.png --skip-trim --png-color 00838f --splashscreen-color 00838f",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "dev": "quasar dev",
     "build": "quasar build",

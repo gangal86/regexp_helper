@@ -25,8 +25,8 @@
           <CheatSheet />
         </q-tab-panel>
       </q-tab-panels>
-      <FooterLinks />
     </q-card>
+    <FooterLinks />
   </q-page>
 </template>
 

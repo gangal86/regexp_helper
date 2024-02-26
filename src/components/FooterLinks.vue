@@ -1,5 +1,5 @@
 <template>
-  <div class="row q-pb-md q-gutter-md justify-center">
+  <div class="row q-pb-md q-mt-xs q-gutter-md justify-center">
     <a
       href="https://github.com/gangal86/regexp_helper"
       target="_blank"
