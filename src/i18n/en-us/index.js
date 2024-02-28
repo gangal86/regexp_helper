@@ -12,6 +12,8 @@ export default {
   labelEndSearchingText: 'This is the end of the text you are looking for:',
   labelSourceText: 'Text to be processed:',
   labelMatchResult: 'Processing result:',
+  labelMatchResultTab1: 'Сoincidences',
+  labelMatchResultTab2: 'Groups',
   btnTestRegExp: 'Test',
   aboutProgramDescribe: 'Assistant for creating and testing regular expressions',
   anchors: 'Anchors',

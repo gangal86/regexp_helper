@@ -30,7 +30,7 @@
           :is="$q.platform.is.mobile ? 'q-scroll-area' : 'div'"
           :class="$q.platform.is.mobile ? 'scroll-area' : 'desktop-only'"
         >
-          <div class="row justify-between">
+          <div class="row">
             <div class="col-sm col-xs-12 q-pa-xs fix-col">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary">
@@ -57,8 +57,10 @@
             </div>
 
             <div class="col-sm col-xs-12 q-pa-xs fix-col">
-              <div class="q-gutter-sm q-ml-sm text-caption text-primary">
-                <q-badge class="q-ml-md" outline color="primary">
+              <div
+                class="column q-gutter-sm q-ml-sm text-caption text-primary items-center"
+              >
+                <q-badge outline color="primary" style="margin-left: -10px">
                   {{ $t('labelInTextCenter') }}
                 </q-badge>
                 <div class="column">
@@ -116,7 +118,7 @@
                   v-model="sourceText"
                   outlined
                   clearable
-                  rows="14"
+                  rows="20"
                   type="textarea"
                 />
               </div>
@@ -127,13 +129,87 @@
                 <q-badge outline color="primary">
                   {{ $t('labelMatchResult') }}
                 </q-badge>
-                <q-input
-                  v-model="matchResult"
-                  outlined
-                  clearable
-                  rows="14"
-                  type="textarea"
-                />
+                <q-card flat bordered>
+                  <q-tabs
+                    v-model="tabResultInput"
+                    dense
+                    no-caps
+                    class="text-grey"
+                    active-color="primary"
+                    indicator-color="primary"
+                    :align="'justify'"
+                    narrow-indicator
+                  >
+                    <q-tab name="сoincidences">{{ $t('labelMatchResultTab1') }}</q-tab>
+                    <q-tab name="groups">{{ $t('labelMatchResultTab2') }}</q-tab>
+                  </q-tabs>
+
+                  <q-separator />
+
+                  <q-tab-panels keep-alive v-model="tabResultInput" animated>
+                    <q-tab-panel name="сoincidences" class="q-pa-none">
+                      <q-scroll-area class="scroll-area">
+                        <q-table
+                          :rows="matchResult"
+                          :columns="columns"
+                          flat
+                          row-key="name"
+                          hide-header
+                          hide-bottom
+                          :pagination="{ rowsNumber: 0 }"
+                        >
+                          <template v-slot:body="props">
+                            <q-tr
+                              :class="{ 'bg-teal-1': props.pageIndex % 2 == 0 }"
+                              :props="props"
+                            >
+                              <q-td key="match" :props="props">
+                                <q-badge
+                                  class="text-subtitle1 text-weight-regular cheat-sheet-items"
+                                  color="primary"
+                                >
+                                  {{ props.row[0] }}
+                                </q-badge>
+                              </q-td>
+                            </q-tr>
+                          </template>
+                        </q-table>
+                      </q-scroll-area>
+                    </q-tab-panel>
+
+                    <q-tab-panel name="groups" class="q-pa-none">
+                      <q-scroll-area class="scroll-area">
+                        <q-table
+                          :rows="matchResult"
+                          :columns="columns"
+                          flat
+                          row-key="name"
+                          hide-header
+                          hide-bottom
+                          :pagination="{ rowsNumber: 0 }"
+                        >
+                          <template v-slot:body="props">
+                            <q-tr
+                              :class="{ 'bg-teal-1': props.pageIndex % 2 == 0 }"
+                              :props="props"
+                            >
+                              <q-td key="match" :props="props">
+                                <q-badge
+                                  v-for="(groupItem, key) in props.row"
+                                  :key="key"
+                                  class="q-mr-sm text-subtitle1 text-weight-regular cheat-sheet-items"
+                                  color="primary"
+                                >
+                                  {{ groupItem }}
+                                </q-badge>
+                              </q-td>
+                            </q-tr>
+                          </template>
+                        </q-table>
+                      </q-scroll-area>
+                    </q-tab-panel>
+                  </q-tab-panels>
+                </q-card>
               </div>
             </div>
           </div>
@@ -152,14 +228,21 @@ const startSearchingText = ref('');
 const afterSearchingText = ref('');
 const endSearchingText = ref('');
 const sourceText = ref('');
-const matchResult = ref('');
+const matchResult = ref([]);
 const checkAllowHyphenation = ref(false);
 const checkShortestMatch = ref(false);
+const tabResultInput = ref('сoincidences');
+const columns = ref([
+  {
+    name: 'match',
+    align: 'left',
+  },
+]);
 
 const testRegExp = () => {
   try {
     const regExp = new RegExp(regexpText.value, 'g');
-    matchResult.value = Array.from(sourceText.value.matchAll(regExp)).join('\n');
+    matchResult.value = Array.from(sourceText.value.matchAll(regExp));
   } catch (error) {
     console.error('Invalid regular expression:', error.message);
   }
@@ -248,5 +331,9 @@ watch(
   .fix-col {
     min-width: 100%;
   }
+}
+
+.scroll-area {
+  height: 348px;
 }
 </style>

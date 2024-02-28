@@ -12,6 +12,8 @@ export default {
   labelEndSearchingText: 'Этим заканчивается искомый текст:',
   labelSourceText: 'Текст для обработки:',
   labelMatchResult: 'Результат обработки:',
+  labelMatchResultTab1: 'Совпадения',
+  labelMatchResultTab2: 'Группы',
   btnTestRegExp: 'Тест',
   aboutProgramDescribe: 'Помощник по созданию и тестированию регулярных выражений',
   anchors: 'Якоря',

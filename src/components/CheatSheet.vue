@@ -15,7 +15,7 @@
               <q-table
                 :rows="item['body']"
                 :columns="columns"
-                :pagination="{ rowsNumber: 10 }"
+                :pagination="{ rowsNumber: 0 }"
                 bordered
                 flat
                 row-key="name"
