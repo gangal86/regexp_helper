@@ -118,8 +118,8 @@
                   v-model="sourceText"
                   outlined
                   clearable
-                  rows="20"
                   type="textarea"
+                  input-style="min-height: 383px"
                 />
               </div>
             </div>
