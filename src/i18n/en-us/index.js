@@ -1,21 +1,21 @@
-//Eng
+//En
 export default {
   constructorTabTitle: 'Constructor',
   cheatSheetTabTitle: 'Cheat sheet',
   labelRegexpText: 'Regular expression text:',
-  labelBeforeSearchingTextIs: 'Before the text you are looking for there is:',
-  labelStartSearchingTextIs: 'The text you are looking for begins with:',
+  labelBeforeSearchingText: 'Before the text you are looking for there is:',
+  labelStartSearchingText: 'The text you are looking for begins with:',
   labelInTextCenter: 'In the center of the text:',
   labelAllowHyphenation: 'Allow hyphenation',
   labelShortestMatch: 'The shortest match',
-  labelAfterSearchingTextIs: 'After the text you are looking for there is:',
-  labelEndSearchingTextIs: 'This ends the text you are looking for:',
+  labelAfterSearchingText: 'After the text you are looking for there is:',
+  labelEndSearchingText: 'This is the end of the text you are looking for:',
   labelSourceText: 'Text to be processed:',
   labelMatchResult: 'Processing result:',
+  labelMatchResultTab1: 'Сoincidences',
+  labelMatchResultTab2: 'Groups',
   btnTestRegExp: 'Test',
-  labelMenuAbout: 'About . . .',
   aboutProgramDescribe: 'Assistant for creating and testing regular expressions',
-  aboutProgramDeveloper: 'Developer:',
   anchors: 'Anchors',
   anchorsItem1: 'Start of string',
   anchorsItem2: 'Start of text',
@@ -110,5 +110,5 @@ export default {
   patternModifiersItem6: 'Evaluate replacement',
   patternModifiersItem7: 'Ungreedy pattern',
   metacharacters: 'Metacharacters (must be escaped)',
-  metacharactersItem1: 'Metacharacters escaped with \'\\\'',
-}
+  metacharactersItem1: "Metacharacters escaped with '\\'",
+};

@@ -4,48 +4,21 @@
 
 <ul>
   <li>
-    <a 
-      href="https://regexp-helper.web.app" 
-      alt="Web-version (PWA)" 
-      title="Web-version (PWA)" 
+    <a
+      href="https://regexp-helper.web.app"
+      alt="Web-version"
+      title="Web-version"
       target="_blank">
-      Web-version (PWA)
+      Web-version
     </a>
   </li>
   <li>
-    <a 
-      href="https://play.google.com/store/apps/details?id=gangal.pro.regexp.helper" 
-      alt="Android-version" 
-      title="Android-version" 
+    <a
+      href="https://chrome.google.com/webstore/detail/regexp-helper/aieccklpajfdolmkkkpphhhfgbflejdj"
+      alt="Chrome extension"
+      title="Chrome extension"
       target="_blank">
-      Android-version
-    </a>
-  </li>
-  <li>
-    <a 
-      href="https://drive.google.com/drive/folders/1fyZmUP6dnGBHld9fA2fa-8mHtgZ5VDj5?usp=sharing" 
-      alt="Windows-version" 
-      title="Windows-version" 
-      target="_blank">
-      Windows-version
-    </a>
-  </li>
-  <li>
-    <a 
-      href="https://chrome.google.com/webstore/detail/regexp-helper/aieccklpajfdolmkkkpphhhfgbflejdj" 
-      alt="Google Chrome extension" 
-      title="Google Chrome extension" 
-      target="_blank">
-      Google Chrome extension
-    </a>
-  </li>
-  <li>
-    <a 
-      href="https://addons.mozilla.org/ru/firefox/addon/regexp-helper" 
-      alt="Mozilla Firefox extension" 
-      title="Mozilla Firefox extension" 
-      target="_blank">
-      Mozilla Firefox extension
+      Chrome extension
     </a>
   </li>
 </ul>

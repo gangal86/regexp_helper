@@ -1,42 +1,37 @@
 {
-  "name": "RegExp Helper",
-  "description": "Помощник по созданию и тестированию регулярных выражений + шпаргалка.",
-  "version": "1.0.2",
-  "manifest_version": 2,
+  "manifest_version": 3,
+
   "icons": {
     "16": "icons/icon-16x16.png",
     "48": "icons/icon-48x48.png",
     "128": "icons/icon-128x128.png"
   },
-  "browser_action": {
-    "default_title": "RegExp Helper"
-  },
+
+  "permissions": ["storage", "host permission"],
+  "host_permissions": ["*://*/*"],
+
+  "action": {},
+
   "background": {
-    "scripts": [
-      "www/bex-background.js",
-      "js/background.js"
-    ],
-    "persistent": true
+    "service_worker": "background.js"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": [
-      "www/bex-content-script.js",
-      "js/content-script.js"
-    ],
-    "css": [
-      "css/content-css.css"
-    ]
-  }],
-  "permissions": [
-    "<all_urls>",
-    "storage"
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": ["assets/content.css"],
+      "js": ["my-content-script.js"]
+    }
   ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+
   "web_accessible_resources": [
-    "www/*",
-    "js/*",
-    "css/*",
-    "<all_urls>"
-  ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';"
+    {
+      "resources": ["*"],
+      "matches": ["*://*/*"]
+    }
+  ]
 }

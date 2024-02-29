@@ -1,13 +1,10 @@
-
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('src/pages/PageMain.vue') }
-    ]
+    children: [{ path: '', component: () => import('pages/MainPage.vue') }],
   },
-  { path: '*', redirect: '/' }, // catch all use case
-]
+  { path: '/:catchAll(.*)*', redirect: '/' },
+];
 
-export default routes
+export default routes;

@@ -26,43 +26,43 @@
           </div>
         </div>
 
-        <component 
-          :is="$q.platform.is.mobile?'q-scroll-area':'div'" 
-          :class="$q.platform.is.mobile?'scroll-area':'desktop-only'"
+        <component
+          :is="$q.platform.is.mobile ? 'q-scroll-area' : 'div'"
+          :class="$q.platform.is.mobile ? 'scroll-area' : 'desktop-only'"
         >
           <div class="row">
-            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary">
-                  {{ $t('labelBeforeSearchingTextIs') }}
-                </q-badge
-                >
-                <q-input
-                  class="q-mb-sm"
-                  outlined
-                  clearable
-                  v-model="beforeSearchingTextIs"
-                  dense
-                />
-                <q-badge outline color="primary">
-                  {{ $t('labelStartSearchingTextIs') }}
+                  {{ $t('labelBeforeSearchingText') }}
                 </q-badge>
                 <q-input
                   class="q-mb-sm"
                   outlined
                   clearable
-                  v-model="startSearchingTextIs"
+                  v-model="beforeSearchingText"
+                  dense
+                />
+                <q-badge outline color="primary">
+                  {{ $t('labelStartSearchingText') }}
+                </q-badge>
+                <q-input
+                  class="q-mb-sm"
+                  outlined
+                  clearable
+                  v-model="startSearchingText"
                   dense
                 />
               </div>
             </div>
 
-            <div class="col-sm col-xs-12 q-pa-xs  fix-standart-grid">
-              <div class="q-gutter-sm text-caption text-primary">
-                <q-badge class="q-ml-md" outline color="primary">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
+              <div
+                class="column q-gutter-sm q-ml-sm text-caption text-primary items-center"
+              >
+                <q-badge outline color="primary" style="margin-left: -10px">
                   {{ $t('labelInTextCenter') }}
-                </q-badge
-                >
+                </q-badge>
                 <div class="column">
                   <q-checkbox
                     v-model="checkAllowHyphenation"
@@ -82,28 +82,26 @@
               </div>
             </div>
 
-            <div class="col-sm col-xs-12 q-pa-xs fix-standart-grid">
+            <div class="col-sm col-xs-12 q-pa-xs fix-col">
               <div class="q-gutter-sm">
                 <q-badge outline color="primary">
-                  {{ $t('labelAfterSearchingTextIs') }}
-                </q-badge
-                >
+                  {{ $t('labelAfterSearchingText') }}
+                </q-badge>
                 <q-input
                   class="q-mb-sm"
                   outlined
                   clearable
-                  v-model="afterSearchingTextIs"
+                  v-model="afterSearchingText"
                   dense
                 />
                 <q-badge outline color="primary">
-                  {{ $t('labelEndSearchingTextIs') }}
-                </q-badge
-                >
+                  {{ $t('labelEndSearchingText') }}
+                </q-badge>
                 <q-input
                   class="q-mb-sm"
                   outlined
                   clearable
-                  v-model="endSearchingTextIs"
+                  v-model="endSearchingText"
                   dense
                 />
               </div>
@@ -120,8 +118,8 @@
                   v-model="sourceText"
                   outlined
                   clearable
-                  rows="14"
                   type="textarea"
+                  input-style="min-height: 383px"
                 />
               </div>
             </div>
@@ -131,13 +129,87 @@
                 <q-badge outline color="primary">
                   {{ $t('labelMatchResult') }}
                 </q-badge>
-                <q-input
-                  v-model="matchResult"
-                  outlined
-                  clearable
-                  rows="14"
-                  type="textarea"
-                />
+                <q-card flat bordered>
+                  <q-tabs
+                    v-model="tabResultInput"
+                    dense
+                    no-caps
+                    class="text-grey"
+                    active-color="primary"
+                    indicator-color="primary"
+                    :align="'justify'"
+                    narrow-indicator
+                  >
+                    <q-tab name="сoincidences">{{ $t('labelMatchResultTab1') }}</q-tab>
+                    <q-tab name="groups">{{ $t('labelMatchResultTab2') }}</q-tab>
+                  </q-tabs>
+
+                  <q-separator />
+
+                  <q-tab-panels keep-alive v-model="tabResultInput" animated>
+                    <q-tab-panel name="сoincidences" class="q-pa-none">
+                      <q-scroll-area class="scroll-area">
+                        <q-table
+                          :rows="matchResult"
+                          :columns="columns"
+                          flat
+                          row-key="name"
+                          hide-header
+                          hide-bottom
+                          :pagination="{ rowsNumber: 0 }"
+                        >
+                          <template v-slot:body="props">
+                            <q-tr
+                              :class="{ 'bg-teal-1': props.pageIndex % 2 == 0 }"
+                              :props="props"
+                            >
+                              <q-td key="match" :props="props">
+                                <q-badge
+                                  class="text-subtitle1 text-weight-regular cheat-sheet-items"
+                                  color="primary"
+                                >
+                                  {{ props.row[0] }}
+                                </q-badge>
+                              </q-td>
+                            </q-tr>
+                          </template>
+                        </q-table>
+                      </q-scroll-area>
+                    </q-tab-panel>
+
+                    <q-tab-panel name="groups" class="q-pa-none">
+                      <q-scroll-area class="scroll-area">
+                        <q-table
+                          :rows="matchResult"
+                          :columns="columns"
+                          flat
+                          row-key="name"
+                          hide-header
+                          hide-bottom
+                          :pagination="{ rowsNumber: 0 }"
+                        >
+                          <template v-slot:body="props">
+                            <q-tr
+                              :class="{ 'bg-teal-1': props.pageIndex % 2 == 0 }"
+                              :props="props"
+                            >
+                              <q-td key="match" :props="props">
+                                <q-badge
+                                  v-for="(groupItem, key) in props.row"
+                                  :key="key"
+                                  class="q-mr-sm text-subtitle1 text-weight-regular cheat-sheet-items"
+                                  color="primary"
+                                >
+                                  {{ groupItem }}
+                                </q-badge>
+                              </q-td>
+                            </q-tr>
+                          </template>
+                        </q-table>
+                      </q-scroll-area>
+                    </q-tab-panel>
+                  </q-tab-panels>
+                </q-card>
               </div>
             </div>
           </div>
@@ -147,125 +219,121 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "RegexpConstructor",
-  data() {
-    return {
-      regexpText: ".+",
-      beforeSearchingTextIs: "",
-      startSearchingTextIs: "",
-      afterSearchingTextIs: "",
-      endSearchingTextIs: "",
-      sourceText: "",
-      matchResult: "",
-      checkAllowHyphenation: false,
-      checkShortestMatch: false
-    };
+<script setup>
+import { ref, watch } from 'vue';
+
+const regexpText = ref('.+');
+const beforeSearchingText = ref('');
+const startSearchingText = ref('');
+const afterSearchingText = ref('');
+const endSearchingText = ref('');
+const sourceText = ref('');
+const matchResult = ref([]);
+const checkAllowHyphenation = ref(false);
+const checkShortestMatch = ref(false);
+const tabResultInput = ref('сoincidences');
+const columns = ref([
+  {
+    name: 'match',
+    align: 'left',
   },
-  watch: {
-    beforeSearchingTextIs() {
-      this.fillRegExp();
-    },
-    afterSearchingTextIs() {
-      this.fillRegExp();
-    },
-    startSearchingTextIs() {
-      this.fillRegExp();
-    },
-    endSearchingTextIs() {
-      this.fillRegExp();
-    },
-    checkAllowHyphenation() {
-      this.fillRegExp();
-    },
-    checkShortestMatch() {
-      this.fillRegExp();
-    }
-  },
-  methods: {
-    testRegExp() {
-      let regExp = new RegExp(this.regexpText, "g");
-      this.sourceText = this.sourceText === null? "": this.sourceText;
-      let matchAll = this.sourceText.matchAll(regExp);
-      matchAll = Array.from(matchAll).join("\n");
-      this.matchResult = matchAll;
-    },
-    fillRegExp() {
-      let beforeSearchingTextIs = this.beforeSearchingTextIs === null? "": this.beforeSearchingTextIs;
-      let startSearchingTextIs = this.startSearchingTextIs === null? "": this.startSearchingTextIs;
-      let endSearchingTextIs = this.endSearchingTextIs === null? "": this.endSearchingTextIs;
-      let afterSearchingTextIs = this.afterSearchingTextIs === null? "": this.afterSearchingTextIs;
-      let middlePartRegExp = ".*";
+]);
 
-      let metacharacters = [
-        "\\\\",
-        "\\?",
-        "\\(",
-        "\\[",
-        "\\^",
-        "\\$",
-        "\\|",
-        "\\)",
-        "\\*",
-        "\\+",
-        "\\.",
-        "\\{",
-        "\\ ",
-        "\\<",
-        "\\-",
-        "\\=",
-        "\\!",
-        "\\]",
-        "\\}",
-        "\\>"
-      ];
-
-      metacharacters.forEach(item => {
-        let matchPattern = new RegExp(`${item}`, "g");
-        beforeSearchingTextIs = beforeSearchingTextIs.replace(matchPattern, item);
-        startSearchingTextIs = startSearchingTextIs.replace(matchPattern, item);
-        endSearchingTextIs = endSearchingTextIs.replace(matchPattern, item);
-        afterSearchingTextIs = afterSearchingTextIs.replace(matchPattern, item);
-      })
-
-      if (this.checkAllowHyphenation) {
-        middlePartRegExp = "[\\w\\W]*";
-      }
-
-      if (this.checkShortestMatch) {
-        middlePartRegExp = ".*?";
-      }
-
-      if (this.checkAllowHyphenation && this.checkShortestMatch) {
-        middlePartRegExp = "[\\w\\W]*?";
-      }
-
-      if (beforeSearchingTextIs != "") {
-        beforeSearchingTextIs = "(?<=" + beforeSearchingTextIs + ")";
-      }
-      if (afterSearchingTextIs != "") {
-        afterSearchingTextIs = "(?=" + afterSearchingTextIs + ")";
-      }
-
-      this.regexpText =
-        beforeSearchingTextIs +
-        startSearchingTextIs +
-        middlePartRegExp +
-        endSearchingTextIs +
-        afterSearchingTextIs;
-    }
+const testRegExp = () => {
+  try {
+    const regExp = new RegExp(regexpText.value, 'g');
+    matchResult.value = Array.from(sourceText.value.matchAll(regExp));
+  } catch (error) {
+    console.error('Invalid regular expression:', error.message);
   }
 };
+
+const fillRegExp = () => {
+  let beforeSearchingTextFill = beforeSearchingText.value || '';
+  let startSearchingTextFill = startSearchingText.value || '';
+  let endSearchingTextFill = endSearchingText.value || '';
+  let afterSearchingTextFill = afterSearchingText.value || '';
+  let middlePartRegExp = '.*';
+
+  const metacharacters = [
+    '\\\\',
+    '\\?',
+    '\\(',
+    '\\[',
+    '\\^',
+    '\\$',
+    '\\|',
+    '\\)',
+    '\\*',
+    '\\+',
+    '\\.',
+    '\\{',
+    '\\ ',
+    '\\<',
+    '\\-',
+    '\\=',
+    '\\!',
+    '\\]',
+    '\\}',
+    '\\>',
+  ];
+
+  metacharacters.forEach((item) => {
+    const matchPattern = new RegExp(item, 'g');
+    beforeSearchingTextFill = beforeSearchingTextFill.replace(matchPattern, item);
+    startSearchingTextFill = startSearchingTextFill.replace(matchPattern, item);
+    endSearchingTextFill = endSearchingTextFill.replace(matchPattern, item);
+    afterSearchingTextFill = afterSearchingTextFill.replace(matchPattern, item);
+  });
+
+  if (checkAllowHyphenation.value) {
+    middlePartRegExp = '[\\w\\W]*';
+  }
+
+  if (checkShortestMatch.value) {
+    middlePartRegExp = '.*?';
+  }
+
+  if (checkAllowHyphenation.value && checkShortestMatch.value) {
+    middlePartRegExp = '[\\w\\W]*?';
+  }
+
+  if (beforeSearchingTextFill !== '') {
+    beforeSearchingTextFill = `(?<=${beforeSearchingTextFill})`;
+  }
+  if (afterSearchingTextFill !== '') {
+    afterSearchingTextFill = `(?=${afterSearchingTextFill})`;
+  }
+
+  regexpText.value =
+    beforeSearchingTextFill +
+    startSearchingTextFill +
+    middlePartRegExp +
+    endSearchingTextFill +
+    afterSearchingTextFill;
+};
+
+watch(
+  [
+    beforeSearchingText,
+    afterSearchingText,
+    startSearchingText,
+    endSearchingText,
+    checkAllowHyphenation,
+    checkShortestMatch,
+  ],
+  fillRegExp,
+);
 </script>
 
 <style lang="scss" scoped>
-.scroll-area {
-  height: 500px;
-}
 @media (max-width: 800px) {
-  .fix-standart-grid {
+  .fix-col {
     min-width: 100%;
   }
+}
+
+.scroll-area {
+  height: 348px;
 }
 </style>
