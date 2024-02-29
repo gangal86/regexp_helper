@@ -488,7 +488,7 @@ const data = reactive({
 
 <style lang="scss" scoped>
 .scroll-area {
-  height: 606px;
+  height: 714px;
 }
 .cheat-sheet-items {
   white-space: normal;
