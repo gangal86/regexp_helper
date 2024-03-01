@@ -1,4 +1,8 @@
 {
+  "name": "RegExp Helper",
+  "description": "Помощник по созданию и тестированию регулярных выражений + шпаргалка.",
+  "short_name": "RegExp Helper",
+  "version": "1.0.4",
   "manifest_version": 3,
 
   "icons": {
@@ -7,8 +11,12 @@
     "128": "icons/icon-128x128.png"
   },
 
-  "permissions": ["storage", "host permission"],
-  "host_permissions": ["*://*/*"],
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
 
   "action": {},
 
@@ -18,9 +26,9 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "css": ["assets/content.css"],
-      "js": ["my-content-script.js"]
+      "matches": [ "*://*/*" ],
+      "css": [ "assets/content.css" ],
+      "js": [ "my-content-script.js" ]
     }
   ],
 
@@ -30,8 +38,8 @@
 
   "web_accessible_resources": [
     {
-      "resources": ["*"],
-      "matches": ["*://*/*"]
+      "resources": [ "*" ],
+      "matches": [ "*://*/*" ]
     }
   ]
 }

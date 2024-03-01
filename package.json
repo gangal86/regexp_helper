@@ -1,6 +1,6 @@
 {
   "name": "regexp_helper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Assistant for creating and testing regular expressions",
   "productName": "RegExp Helper",
   "author": "Roman Gangal <gangal33@gmail.com>",
