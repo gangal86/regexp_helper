@@ -1,6 +1,6 @@
 # RegExp Helper
 
-<p>Assistant for creating and testing regular expressions + Cheat sheet.</p>
+<h2>Assistant for creating and testing regular expressions + Cheat sheet.</h2>
 
 <ul>
   <li>
